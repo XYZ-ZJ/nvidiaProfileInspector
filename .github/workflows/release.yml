@@ -27,7 +27,7 @@ jobs:
 
     - name: Get next version
       id: get-version
-      if: github.event_name == 'push'
+      if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
       run: |
         $ASSEMBLY_INFO = "nvidiaProfileInspector\Properties\AssemblyInfo.cs"
         $ASSEMBLY_CONTENT = Get-Content $ASSEMBLY_INFO -Raw
@@ -69,7 +69,7 @@ jobs:
       run: nuget restore nvidiaProfileInspector\nvidiaProfileInspector.sln
 
     - name: Update AssemblyInfo (release only)
-      if: github.event_name == 'push'
+      if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
       run: |
         $VERSION = "${{ steps.get-version.outputs.version }}"
         $VERSION = $VERSION.TrimStart('v')
@@ -88,7 +88,7 @@ jobs:
       run: msbuild /m /p:Configuration=Release nvidiaProfileInspector\nvidiaProfileInspector.sln
 
     - name: Create Release Artifact (release only)
-      if: github.event_name == 'push'
+      if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
       run: |
         $artifactDir = "publish\net48"
         New-Item -ItemType Directory -Force -Path $artifactDir
@@ -96,7 +96,7 @@ jobs:
       shell: pwsh
 
     - name: Upload Artifact (release only)
-      if: github.event_name == 'push'
+      if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
       uses: actions/upload-artifact@v4
       with:
         name: nvidiaProfileInspector
@@ -105,7 +105,7 @@ jobs:
   release:
     needs: build
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     permissions:
       contents: write
 
