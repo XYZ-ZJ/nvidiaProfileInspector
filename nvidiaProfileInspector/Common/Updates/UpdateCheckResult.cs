@@ -21,14 +21,14 @@ namespace nvidiaProfileInspector.Common.Updates
         public static UpdateCheckResult Available(UpdateRelease release)
         {
             var message = release?.IsInstallable == true
-                ? "A newer version is ready to install."
-                : "A newer version is available, but it does not contain a supported update package.";
+                ? "有新版本已就绪，可以安装。"
+                : "有新版本可用，但其中不包含受支持的更新包。";
             return new UpdateCheckResult(true, true, release, message, null);
         }
 
         public static UpdateCheckResult UpToDate(UpdateRelease release)
         {
-            return new UpdateCheckResult(true, false, release, "You are already on the latest version for this channel.", null);
+            return new UpdateCheckResult(true, false, release, "您已在使用当前通道的最新版本。", null);
         }
 
         public static UpdateCheckResult Unavailable(string message)

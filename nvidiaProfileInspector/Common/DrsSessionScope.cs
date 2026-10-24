@@ -46,7 +46,7 @@ namespace nvidiaProfileInspector.Common
                 return action(GlobalSession);
             }
 
-            throw new Exception(nameof(GlobalSession) + " is Zero!");
+            throw new Exception(nameof(GlobalSession) + " 为零！");
         }
 
         public static void DestroyGlobalSession()

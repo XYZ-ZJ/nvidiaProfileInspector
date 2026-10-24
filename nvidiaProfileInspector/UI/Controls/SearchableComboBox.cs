@@ -29,7 +29,7 @@ namespace nvidiaProfileInspector.UI.Controls
 
         public static readonly DependencyProperty PlaceholderProperty =
         DependencyProperty.Register(nameof(Placeholder), typeof(string), typeof(SearchableComboBox),
-        new PropertyMetadata("Search..."));
+        new PropertyMetadata("搜索..."));
 
         public static readonly DependencyProperty FilterTextProperty =
         DependencyProperty.Register(nameof(FilterText), typeof(string), typeof(SearchableComboBox),

@@ -317,13 +317,13 @@ namespace nvidiaProfileInspector.Common
 
             var resCurrentProfile = nvw.Instance.DRS_CreateApplication(hSession, hProfile, ref pApplication);
             if (resCurrentProfile != NvAPI_Status.NVAPI_OK)
-                throw new ApplicationException($"NVAPI Bug mitigation failed to add application '{pApplication.appName}' in current profile");
+                throw new ApplicationException($"NVAPI 兼容缓解：无法在当前配置文件中添加应用程序“{pApplication.appName}”");
 
             var resOtherProfile = nvw.Instance.DRS_CreateApplication(hSession, otherProfile, ref appToRestore);
             if (resOtherProfile != NvAPI_Status.NVAPI_OK)
             {
                 var profile = GetProfileInfo(hSession, otherProfile);
-                throw new ApplicationException($"NVAPI Bug mitigation failed to restore application '{appToRestore.appName}' in profile '{profile.profileName}'");
+                throw new ApplicationException($"NVAPI 兼容缓解：无法在配置文件“{profile.profileName}”中还原应用程序“{appToRestore.appName}”");
             }
 
             return true;

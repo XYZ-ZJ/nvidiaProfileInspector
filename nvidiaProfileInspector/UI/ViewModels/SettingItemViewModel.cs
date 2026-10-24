@@ -39,7 +39,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
         private void UpdateGroupNameForDisplay()
         {
             if (_isFavorite)
-                _cachedGroupNameForDisplay = "⭐ Favorites";
+                _cachedGroupNameForDisplay = "⭐ 收藏";
             else
                 _cachedGroupNameForDisplay = GroupName;
         }
@@ -125,10 +125,10 @@ namespace nvidiaProfileInspector.UI.ViewModels
         public SettingItemViewModel() : this(new SettingItem
         {
             SettingId = 0x12345678,
-            SettingText = "Sample Setting",
-            ValueText = "Enabled",
+            SettingText = "示例设置",
+            ValueText = "已启用",
             ValueRaw = "0x00000001",
-            GroupName = "Design Time",
+            GroupName = "设计时",
             State = SettingState.NvidiaSetting
         })
         {
@@ -160,7 +160,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
         public bool IsNvidiaSetting => State == SettingState.NvidiaSetting;
         public bool IsGlobalSetting => State == SettingState.GlobalSetting;
 
-        // "Forced" = the setting has an explicit value in the profile (predefined, global
+        // "强制" = the setting has an explicit value in the profile (predefined, global
         // or user), i.e. it is not sitting at the untouched driver default.
         public bool IsForced => State != SettingState.NotAssiged;
 

@@ -285,7 +285,7 @@ namespace nvidiaProfileInspector.TinyIoc
         public Type ResolveType { get; }
 
         public TinyIoCResolutionException(Type resolveType)
-            : base($"Could not resolve type: {resolveType.FullName}")
+            : base($"无法解析类型：{resolveType.FullName}")
         {
             ResolveType = resolveType;
         }

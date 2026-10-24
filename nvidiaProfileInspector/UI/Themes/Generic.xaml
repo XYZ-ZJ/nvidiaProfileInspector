@@ -75,7 +75,7 @@
                                         x:Name="MinimizeButton"
                                         Grid.Column="0"
                                         Style="{StaticResource WindowButtonStyle}"
-                                        ToolTip="Minimize"
+                                        ToolTip="最小化"
                                         Visibility="{TemplateBinding ShowMinimizeButton,
                                                                      Converter={StaticResource BoolToVisibilityConverter}}">
                                         <Path
@@ -95,7 +95,7 @@
                                         x:Name="CloseButton"
                                         Grid.Column="2"
                                         Style="{StaticResource CloseWindowButtonStyle}"
-                                        ToolTip="Close"
+                                        ToolTip="关闭"
                                         Visibility="{TemplateBinding ShowCloseButton,
                                                                      Converter={StaticResource BoolToVisibilityConverter}}">
                                         <Path

@@ -46,7 +46,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
             _scannerService = scannerService;
             _referenceSettings = referenceSettings;
 
-            Title = $"Bit Value Editor - {settingName}";
+            Title = $"位值编辑器 - {settingName}";
 
             if (_scannerService == null)
                 LoadDesignTimeData();
@@ -195,42 +195,42 @@ namespace nvidiaProfileInspector.UI.ViewModels
                 new BitItemViewModel(0)
                 {
                     IsChecked = true,
-                    MaskDescription = "Enable compatibility profile override",
+                    MaskDescription = "启用兼容性配置文件覆盖",
                     ProfileCount = 18,
                     ProfileNames = "Cyberpunk 2077, Control, Alan Wake 2"
                 },
                 new BitItemViewModel(2)
                 {
                     IsChecked = true,
-                    MaskDescription = "Force alternate depth resolve path",
+                    MaskDescription = "强制使用备用深度解析路径",
                     ProfileCount = 9,
                     ProfileNames = "Red Dead Redemption 2, Starfield"
                 },
                 new BitItemViewModel(3)
                 {
                     IsChecked = true,
-                    MaskDescription = "Use driver AA heuristic for deferred renderer",
+                    MaskDescription = "延迟渲染器使用驱动抗锯齿启发式",
                     ProfileCount = 14,
                     ProfileNames = "The Witcher 3, Hogwarts Legacy, Dragon Age"
                 },
                 new BitItemViewModel(5)
                 {
                     IsChecked = false,
-                    MaskDescription = "Preserve transparency supersampling behavior",
+                    MaskDescription = "保留透明超采样行为",
                     ProfileCount = 6,
                     ProfileNames = "Batman Arkham Knight, Fallout 4"
                 },
                 new BitItemViewModel(7)
                 {
                     IsChecked = false,
-                    MaskDescription = "Skip engine-specific post-process workaround",
+                    MaskDescription = "跳过引擎特定的后处理变通方案",
                     ProfileCount = 3,
                     ProfileNames = "Sample UE4 Profile"
                 },
                 new BitItemViewModel(12)
                 {
                     IsChecked = true,
-                    MaskDescription = "Prefer legacy SLI compatibility branch",
+                    MaskDescription = "优先使用旧版 SLI 兼容分支",
                     ProfileCount = 11,
                     ProfileNames = "Crysis 3, Metro Exodus, Watch Dogs 2"
                 }
@@ -244,7 +244,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
                 _bits.Add(new BitItemViewModel(bit)
                 {
                     IsChecked = ((_currentValue >> bit) & 1) == 1,
-                    MaskDescription = bit % 2 == 0 ? "Reserved / unknown" : string.Empty,
+                    MaskDescription = bit % 2 == 0 ? "保留 / 未知" : string.Empty,
                     ProfileCount = 0,
                     ProfileNames = string.Empty
                 });
@@ -389,11 +389,11 @@ namespace nvidiaProfileInspector.UI.ViewModels
                 // Note: This would need the current profile from MainViewModel
                 // For now, just update the display
                 OnValueChanged?.Invoke(_currentValue);
-                StatusMessage = "Value applied to profile.";
+                StatusMessage = "已将数值应用到配置文件。";
             }
             catch (Exception ex)
             {
-                StatusMessage = $"Error: {ex.Message}";
+                StatusMessage = $"错误：{ex.Message}";
                 OnShowMessage?.Invoke(StatusMessage);
             }
         }
@@ -410,7 +410,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
             }
 
             if (!string.IsNullOrWhiteSpace(GamePath))
-                StatusMessage = "Game executable not found.";
+                StatusMessage = "未找到游戏可执行文件。";
         }
     }
 

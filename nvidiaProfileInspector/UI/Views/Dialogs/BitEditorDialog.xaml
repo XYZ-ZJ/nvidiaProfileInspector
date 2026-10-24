@@ -7,7 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:nvidiaProfileInspector.UI.ViewModels"
-    Title="Bit Value Editor"
+    Title="位值编辑器"
     Width="1241"
     Height="864"
     MinHeight="864"
@@ -81,7 +81,7 @@
                     FontSize="18"
                     FontWeight="SemiBold"
                     Foreground="{DynamicResource TextPrimaryBrush}"
-                    Text="Bit Value Editor" />
+                    Text="位值编辑器" />
 
                 <StackPanel
                     Grid.Column="1"
@@ -92,7 +92,7 @@
                     <Button
                         Click="Close_Click"
                         Style="{StaticResource CloseWindowButtonStyle}"
-                        ToolTip="Close">
+                        ToolTip="关闭">
                         <Path
                             Width="10"
                             Height="10"
@@ -119,16 +119,16 @@
                 Margin="0,0,0,16"
                 FontSize="13"
                 Foreground="{DynamicResource TextSecondaryBrush}"
-                Text="Inspect individual flag bits, compare them against scanned profiles, and quickly test the value in a game launch."
+                Text="查看单个标志位，与扫描到的配置文件进行比对，并在启动游戏时快速测试该值。"
                 TextWrapping="Wrap" />
 
             <controls:SearchableTextBox
                 x:Name="FilterTextBox"
                 Grid.Row="1"
                 Margin="0,0,0,12"
-                Placeholder="Filter profile names..."
+                Placeholder="筛选配置文件名称..."
                 Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}"
-                ToolTip="Filter scanned profile names" />
+                ToolTip="筛选已扫描的配置文件名称" />
 
             <Grid Grid.Row="2" MinHeight="360">
                 <Grid.RowDefinitions>
@@ -184,7 +184,7 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Enabled">
+                            <GridViewColumn Header="启用">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <CheckBox
@@ -194,21 +194,21 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Description">
+                            <GridViewColumn Header="描述">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding MaskDescription}" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Count">
+                            <GridViewColumn Header="出现次数">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding ProfileCount}" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Profiles">
+                            <GridViewColumn Header="配置文件">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding VisibleProfileNames}" TextTrimming="CharacterEllipsis" />
@@ -280,12 +280,12 @@
                                 FontSize="14"
                                 FontWeight="SemiBold"
                                 Foreground="{DynamicResource TextPrimaryBrush}"
-                                Text="Test Area" />
+                                Text="测试区" />
                             <TextBlock
                                 Margin="0,4,0,0"
                                 FontSize="12"
                                 Foreground="{DynamicResource TextSecondaryBrush}"
-                                Text="Apply the edited value to the current profile, then optionally launch a game executable to test it immediately."
+                                Text="将编辑后的值应用到当前配置文件，然后可选择启动游戏可执行文件立即测试。"
                                 TextWrapping="Wrap" />
                         </StackPanel>
 
@@ -297,7 +297,7 @@
                             VerticalAlignment="Center"
                             Style="{StaticResource DarkTextBoxStyle}"
                             Text="{Binding GamePath, UpdateSourceTrigger=PropertyChanged}"
-                            ToolTip="Game executable path" />
+                            ToolTip="游戏可执行文件路径" />
                         <Button
                             Grid.Row="1"
                             Grid.Column="1"
@@ -306,7 +306,7 @@
                             Padding="12,6"
                             Click="Browse_Click"
                             Style="{StaticResource DarkButtonStyle}"
-                            ToolTip="Browse for game executable">
+                            ToolTip="浏览游戏可执行文件">
                             <StackPanel Orientation="Horizontal">
                                 <Path
                                     Width="14"
@@ -316,7 +316,7 @@
                                     Data="{DynamicResource IconFolder}"
                                     Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
                                     Stretch="Uniform" />
-                                <TextBlock VerticalAlignment="Center" Text="Browse" />
+                                <TextBlock VerticalAlignment="Center" Text="浏览" />
                             </StackPanel>
                         </Button>
                         <Button
@@ -327,7 +327,7 @@
                             Padding="12,6"
                             Command="{Binding ApplyAndLaunchCommand}"
                             Style="{StaticResource AccentButtonStyle}"
-                            ToolTip="Apply changes and launch game">
+                            ToolTip="应用更改并启动游戏">
                             <StackPanel Orientation="Horizontal">
                                 <Path
                                     Width="14"
@@ -337,7 +337,7 @@
                                     Data="{DynamicResource IconGame}"
                                     Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
                                     Stretch="Uniform" />
-                                <TextBlock VerticalAlignment="Center" Text="Apply &amp; Launch" />
+                                <TextBlock VerticalAlignment="Center" Text="应用并启动" />
                             </StackPanel>
                         </Button>
                     </Grid>
@@ -366,14 +366,14 @@
                             FontSize="14"
                             FontWeight="SemiBold"
                             Foreground="{DynamicResource TextPrimaryBrush}"
-                            Text="Current Value" />
+                            Text="当前值" />
                         <TextBlock
                             Grid.Row="1"
                             Grid.ColumnSpan="2"
                             Margin="0,4,0,0"
                             FontSize="12"
                             Foreground="{DynamicResource TextSecondaryBrush}"
-                            Text="Review and apply the current bitmask value." />
+                            Text="查看并应用当前位掩码值。" />
                         <Grid
                             Grid.Row="2"
                             Grid.ColumnSpan="2"
@@ -389,7 +389,7 @@
                                 Margin="0,0,8,0"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextSecondaryBrush}"
-                                Text="Value:" />
+                                Text="值：" />
                             <TextBox
                                 x:Name="CurrentValueTextBox"
                                 Grid.Column="1"
@@ -398,14 +398,14 @@
                                 IsReadOnly="True"
                                 Style="{StaticResource DarkTextBoxStyle}"
                                 Text="{Binding CurrentValueHex, Mode=OneWay}"
-                                ToolTip="Current DWORD value" />
+                                ToolTip="当前 DWORD 值" />
                             <Button
                                 Grid.Column="2"
                                 MinWidth="96"
                                 Padding="12,6"
                                 Command="{Binding ApplyCommand}"
                                 Style="{StaticResource AccentButtonStyle}"
-                                ToolTip="Apply bit changes">
+                                ToolTip="应用位更改">
                                 <StackPanel Orientation="Horizontal">
                                     <Path
                                         Width="14"
@@ -415,7 +415,7 @@
                                         Data="{DynamicResource IconApply}"
                                         Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
                                         Stretch="Uniform" />
-                                    <TextBlock VerticalAlignment="Center" Text="Apply" />
+                                    <TextBlock VerticalAlignment="Center" Text="应用" />
                                 </StackPanel>
                             </Button>
                             <Button
@@ -425,9 +425,9 @@
                                 Margin="8,0,0,0"
                                 Padding="12,6"
                                 Click="Close_Click"
-                                Content="Close"
+                                Content="关闭"
                                 Style="{StaticResource DarkButtonStyle}"
-                                ToolTip="Close without saving" />
+                                ToolTip="不保存关闭" />
                         </Grid>
                     </Grid>
                 </Border>

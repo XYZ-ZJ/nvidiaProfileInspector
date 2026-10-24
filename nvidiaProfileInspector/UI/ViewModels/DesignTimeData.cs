@@ -9,7 +9,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
         public static BitEditorViewModel BitEditorViewModel => new BitEditorViewModel(
             0x10F9DC81,
             0x0000100D,
-            "Antialiasing Compatibility Flags",
+            "抗锯齿兼容性标志",
             null,
             null,
             null);
@@ -19,34 +19,34 @@ namespace nvidiaProfileInspector.UI.ViewModels
             new SettingItemViewModel(new SettingItem
             {
                 SettingId = 0x00000001,
-                SettingText = "Antialiasing - Mode",
-                ValueText = "Enhance the application settings",
+                SettingText = "抗锯齿 - 模式",
+                ValueText = "增强应用程序设置",
                 ValueRaw = "0x00000002",
-                GroupName = "Antialiasing",
+                GroupName = "抗锯齿",
                 State = SettingState.NvidiaSetting
             }),
             new SettingItemViewModel(new SettingItem
             {
                 SettingId = 0x00000002,
-                SettingText = "Antialiasing - Setting",
+                SettingText = "抗锯齿 - 设置",
                 ValueText = "4x MSAA",
                 ValueRaw = "0x00000004",
-                GroupName = "Antialiasing",
+                GroupName = "抗锯齿",
                 State = SettingState.UserdefinedSetting
             }),
             new SettingItemViewModel(new SettingItem
             {
                 SettingId = 0x00000003,
-                SettingText = "Texture Filtering - Quality",
-                ValueText = "High Performance",
+                SettingText = "纹理过滤 - 质量",
+                ValueText = "高性能",
                 ValueRaw = "0x00000001",
-                GroupName = "Texture Filtering",
+                GroupName = "纹理过滤",
                 State = SettingState.GlobalSetting
             }),
             new SettingItemViewModel(new SettingItem
             {
                 SettingId = 0x00000004,
-                SettingText = "Vertical Sync",
+                SettingText = "垂直同步",
                 ValueText = "On",
                 ValueRaw = "0x00000001",
                 GroupName = "Sync",
@@ -56,10 +56,10 @@ namespace nvidiaProfileInspector.UI.ViewModels
             new SettingItemViewModel(new SettingItem
             {
                 SettingId = 0x00000005,
-                SettingText = "Power Management Mode",
-                ValueText = "Prefer Maximum Performance",
+                SettingText = "电源管理模式",
+                ValueText = "优先最高性能",
                 ValueRaw = "0x00000002",
-                GroupName = "Power Management",
+                GroupName = "电源管理",
                 State = SettingState.NvidiaSetting
             })
         };

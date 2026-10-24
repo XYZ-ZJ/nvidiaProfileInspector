@@ -18,6 +18,6 @@ namespace nvidiaProfileInspector.Common.Updates
         public UpdateAsset Asset { get; }
         public bool IsInstallable => Asset != null && !string.IsNullOrWhiteSpace(Asset.DownloadUrl);
         public UpdateChannel Channel => IsPreRelease ? UpdateChannel.Prerelease : UpdateChannel.Release;
-        public string DisplayText => $"{Version}{(IsPreRelease ? " Pre-release" : " Release")}";
+        public string DisplayText => $"{Version}{(IsPreRelease ? " 预发布版" : " 正式版")}";
     }
 }

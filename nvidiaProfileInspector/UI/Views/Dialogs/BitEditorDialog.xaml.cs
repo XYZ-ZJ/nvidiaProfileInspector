@@ -19,7 +19,7 @@ namespace nvidiaProfileInspector.UI.Views.Dialogs
             InitializeComponent();
             _viewModel = DesignTimeData.BitEditorViewModel;
             InitializeViewModel();
-            StatusTextBlock.Text = "Designer preview";
+            StatusTextBlock.Text = "设计器预览";
         }
 
         public BitEditorDialog(uint settingId, uint initialValue, string settingName)
@@ -47,8 +47,8 @@ namespace nvidiaProfileInspector.UI.Views.Dialogs
         {
             var dialog = new OpenFileDialog
             {
-                Filter = "Applications|*.exe",
-                Title = "Select Game"
+                Filter = "应用程序|*.exe",
+                Title = "选择游戏"
             };
 
             if (dialog.ShowDialog() == true)

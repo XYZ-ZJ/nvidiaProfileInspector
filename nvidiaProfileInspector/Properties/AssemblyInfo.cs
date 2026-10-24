@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 
 [assembly: AssemblyTitle("nvidiaProfileInspector")]
-[assembly: AssemblyDescription("NVIDIA PROFILE INSPECTOR - Driver Profile Settings Editor")]
+[assembly: AssemblyDescription("NVIDIA PROFILE INSPECTOR - 驱动配置文件设置编辑器")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("nvidiaProfileInspector")]

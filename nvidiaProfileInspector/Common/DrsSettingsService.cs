@@ -139,7 +139,7 @@ namespace nvidiaProfileInspector.Common
                 var baseProfileHandle = GetProfileHandle(hSession, null);
                 if (hProfile == baseProfileHandle)
                 {
-                    throw new InvalidOperationException("Base profile cannot be deleted.");
+                    throw new InvalidOperationException("无法删除基础配置文件。");
                 }
 
 

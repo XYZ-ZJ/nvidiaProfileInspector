@@ -24,16 +24,20 @@ namespace nvidiaProfileInspector.UI.ViewModels
         private bool _isSplashScreenDisabled;
         private bool _isUpdateAvailable;
         private bool _isUpdating;
-        private string _latestVersionText = "Not checked";
+        private string _latestVersionText = "未检查";
         private string _selectedUpdateChannel;
-        private string _updateStatusText = "Choose a channel and check for updates.";
+        private string _updateStatusText = "请选择更新通道并检查更新。";
         private UpdateCheckResult _lastUpdateCheckResult;
         private readonly AppUpdateService _updateService = new AppUpdateService();
         private int _updateCheckGeneration;
 
         public string Version { get; }
         public ObservableCollection<Contributor> Contributors { get; } = new ObservableCollection<Contributor>();
-        public ObservableCollection<string> UpdateChannels { get; } = new ObservableCollection<string> { "Release", "Pre-release" };
+        public ObservableCollection<string> UpdateChannels { get; } = new ObservableCollection<string>
+        {
+            UpdateChannelFormatter.ToDisplayName(UpdateChannel.Release),
+            UpdateChannelFormatter.ToDisplayName(UpdateChannel.Prerelease)
+        };
         public string GitHubUrl => "https://github.com/Orbmu2k/nvidiaProfileInspector/releases";
         public string GitHubRepositoryUrl => "https://github.com/Orbmu2k/nvidiaProfileInspector";
 
@@ -77,8 +81,8 @@ namespace nvidiaProfileInspector.UI.ViewModels
                     settings.SaveSettings();
                     _lastUpdateCheckResult = null;
                     IsUpdateAvailable = false;
-                    LatestVersionText = "Checking...";
-                    UpdateStatusText = "Checking GitHub releases...";
+                    LatestVersionText = "正在检查...";
+                    UpdateStatusText = "正在检查 GitHub 发布...";
                     OnPropertyChanged(nameof(CanInstallUpdate));
                     _ = RefreshUpdateStatusAsync();
                 }
@@ -143,8 +147,8 @@ namespace nvidiaProfileInspector.UI.ViewModels
             }
             else
             {
-                LatestVersionText = "Checking...";
-                UpdateStatusText = "Checking GitHub releases...";
+                LatestVersionText = "正在检查...";
+                UpdateStatusText = "正在检查 GitHub 发布...";
                 _ = RefreshUpdateStatusAsync();
             }
 
@@ -169,7 +173,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
             var channel = GetSelectedUpdateChannel();
             try
             {
-                UpdateStatusText = "Checking GitHub releases...";
+                UpdateStatusText = "正在检查 GitHub 发布...";
                 var result = await _updateService.CheckAsync(channel);
                 if (generation != _updateCheckGeneration)
                     return;
@@ -189,7 +193,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
             IsUpdating = true;
             try
             {
-                UpdateStatusText = "Preparing update package...";
+                UpdateStatusText = "正在准备更新包...";
                 if (_lastUpdateCheckResult == null || !_lastUpdateCheckResult.CanInstall)
                 {
                     _lastUpdateCheckResult = await _updateService.CheckAsync(GetSelectedUpdateChannel());
@@ -200,15 +204,15 @@ namespace nvidiaProfileInspector.UI.ViewModels
                 }
 
                 await _updateService.PrepareInstallAsync(_lastUpdateCheckResult.LatestRelease);
-                UpdateStatusText = "Update downloaded. Restarting application...";
+                UpdateStatusText = "更新已下载，正在重启应用程序...";
                 Application.Current.Shutdown();
             }
             catch (Exception ex)
             {
-                UpdateStatusText = "Update failed.";
+                UpdateStatusText = "更新失败。";
                 MessageBoxViewModel.Show(
-                    $"The update could not be installed.\r\n\r\n{ex.Message}",
-                    "Update failed",
+                    $"无法安装更新。\r\n\r\n{ex.Message}",
+                    "更新失败",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
@@ -226,7 +230,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
         private void ApplyUpdateCheckResult(UpdateCheckResult result)
         {
             IsUpdateAvailable = result?.IsUpdateAvailable == true;
-            LatestVersionText = result?.LatestRelease?.DisplayText ?? "Unavailable";
+            LatestVersionText = result?.LatestRelease?.DisplayText ?? "不可用";
             UpdateStatusText = result?.StatusMessage ?? "Could not read release information.";
             OnPropertyChanged(nameof(CanInstallUpdate));
         }
@@ -236,28 +240,28 @@ namespace nvidiaProfileInspector.UI.ViewModels
             Contributors.Add(new Contributor
             {
                 Name = "Orbmu2k",
-                Role = "Chief Architect (Emeritus)",
+                Role = "首席架构师（荣誉）",
                 AvatarUrl = "https://github.com/Orbmu2k.png",
                 ProfileUrl = "https://github.com/Orbmu2k"
             });
             Contributors.Add(new Contributor
             {
                 Name = "emoose",
-                Role = "Lead Developer",
+                Role = "主要开发者",
                 AvatarUrl = "https://github.com/emoose.png",
                 ProfileUrl = "https://github.com/emoose"
             });
             Contributors.Add(new Contributor
             {
                 Name = "Warkratos",
-                Role = "Developer & Driver Settings Researcher",
+                Role = "开发者兼驱动设置研究员",
                 AvatarUrl = "https://github.com/warkratos.png",
                 ProfileUrl = "https://github.com/warkratos"
             });
             Contributors.Add(new Contributor
             {
                 Name = "DarkStarSword",
-                Role = "Contributor",
+                Role = "贡献者",
                 AvatarUrl = "https://github.com/DarkStarSword.png",
                 ProfileUrl = "https://github.com/DarkStarSword"
             });

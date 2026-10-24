@@ -52,7 +52,7 @@
                                      IsEditable="True"
                                      ItemsSource="{Binding ValueNameItems, Mode=OneWay}"
                                      MaxDropDownHeight="400"
-                                     Placeholder="Search values..."
+                                     Placeholder="搜索数值..."
                                      PreserveSelectionOnKeyboardFocus="True"
                                      SyncSelectedItemToText="False"
                                      Text="{Binding SelectedValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -153,7 +153,7 @@
                         Margin="0,0,8,0"
                         Command="{Binding NavigateToGlobalCommand}"
                         Style="{StaticResource HeaderIconButtonStyle}"
-                        ToolTip="Navigate to Global Profile">
+                        ToolTip="转到全局驱动配置文件">
                         <Path
                             Width="18"
                             Height="18"
@@ -172,7 +172,7 @@
                         IsSynchronizedWithCurrentItem="False"
                         ItemsSource="{Binding ProfileNames}"
                         MaxDropDownHeight="500"
-                        Placeholder="Search profiles..."
+                        Placeholder="搜索配置文件..."
                         SelectedValue="{Binding CurrentProfile}"
                         SelectedValuePath="ProfileName"
                         SyncSelectedItemToText="True">
@@ -221,12 +221,12 @@
                         Margin="8,0,0,0"
                         ItemsSource="{Binding ModifiedProfiles}"
                         MaxDropDownHeight="500"
-                        Placeholder="Search modified profiles..."
+                        Placeholder="搜索已修改的配置文件..."
                         PreviewKeyDown="ModifiedProfilesCombo_PreviewKeyDown"
                         SelectionChanged="ModifiedProfilesCombo_SelectionChanged"
                         Style="{DynamicResource IconSearchableComboBoxStyle}"
                         SyncSelectedItemToText="True"
-                        ToolTip="View Modified Profiles">
+                        ToolTip="查看已修改的配置文件">
                         <controls:SearchableComboBox.ItemTemplate>
                             <DataTemplate DataType="{x:Type vm:ModifiedProfileItem}">
                                 <Grid ToolTip="{Binding ProfileTypeLabel}">
@@ -277,7 +277,7 @@
                             BorderThickness="1"
                             Command="{Binding ToggleAppearanceMenuCommand}"
                             Cursor="Hand"
-                            ToolTip="Appearance">
+                            ToolTip="外观">
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
                                     <Border
@@ -341,7 +341,7 @@
                                         FontSize="10"
                                         FontWeight="Bold"
                                         Foreground="{DynamicResource TextSecondaryBrush}"
-                                        Text="THEME" />
+                                        Text="主题" />
                                     <Button
                                         Margin="0,1"
                                         Padding="6,5"
@@ -387,7 +387,7 @@
                                                 VerticalAlignment="Center"
                                                 FontSize="12"
                                                 Foreground="{DynamicResource TextPrimaryBrush}"
-                                                Text="Midnight" />
+                                                Text="午夜黑" />
                                         </StackPanel>
                                     </Button>
                                     <Button
@@ -435,7 +435,7 @@
                                                 VerticalAlignment="Center"
                                                 FontSize="12"
                                                 Foreground="{DynamicResource TextPrimaryBrush}"
-                                                Text="Dark" />
+                                                Text="暗黑" />
                                         </StackPanel>
                                     </Button>
                                     <Button
@@ -483,7 +483,7 @@
                                                 VerticalAlignment="Center"
                                                 FontSize="12"
                                                 Foreground="{DynamicResource TextPrimaryBrush}"
-                                                Text="Slate" />
+                                                Text="石板灰" />
                                         </StackPanel>
                                     </Button>
                                     <Button
@@ -531,7 +531,7 @@
                                                 VerticalAlignment="Center"
                                                 FontSize="12"
                                                 Foreground="{DynamicResource TextPrimaryBrush}"
-                                                Text="Clean White" />
+                                                Text="纯白" />
                                         </StackPanel>
                                     </Button>
                                     <!--  Separator  -->
@@ -545,7 +545,7 @@
                                         FontSize="10"
                                         FontWeight="Bold"
                                         Foreground="{DynamicResource TextSecondaryBrush}"
-                                        Text="DENSITY" />
+                                        Text="密度" />
                                     <Button
                                         Margin="0,1"
                                         Padding="6,5"
@@ -591,7 +591,7 @@
                                                 VerticalAlignment="Center"
                                                 FontSize="12"
                                                 Foreground="{DynamicResource TextPrimaryBrush}"
-                                                Text="Modern" />
+                                                Text="现代" />
                                         </StackPanel>
                                     </Button>
                                     <Button
@@ -639,7 +639,7 @@
                                                 VerticalAlignment="Center"
                                                 FontSize="12"
                                                 Foreground="{DynamicResource TextPrimaryBrush}"
-                                                Text="Compact" />
+                                                Text="紧凑" />
                                         </StackPanel>
                                     </Button>
                                     <Border
@@ -651,7 +651,7 @@
                                         FontSize="10"
                                         FontWeight="Bold"
                                         Foreground="{DynamicResource TextSecondaryBrush}"
-                                        Text="BACKDROP" />
+                                        Text="背景效果" />
                                     <Button
                                         Margin="0,1"
                                         Padding="6,5"
@@ -698,7 +698,7 @@
                                                 VerticalAlignment="Center"
                                                 FontSize="12"
                                                 Foreground="{DynamicResource TextPrimaryBrush}"
-                                                Text="Glass" />
+                                                Text="玻璃" />
                                         </StackPanel>
                                     </Button>
                                     <Button
@@ -796,7 +796,7 @@
                                                 VerticalAlignment="Center"
                                                 FontSize="12"
                                                 Foreground="{DynamicResource TextPrimaryBrush}"
-                                                Text="Mica Variant" />
+                                                Text="Mica 变体" />
                                         </StackPanel>
                                     </Button>
                                     <Button
@@ -845,7 +845,7 @@
                                                 VerticalAlignment="Center"
                                                 FontSize="12"
                                                 Foreground="{DynamicResource TextPrimaryBrush}"
-                                                Text="Acrylic" />
+                                                Text="亚克力" />
                                         </StackPanel>
                                     </Button>
                                     <Button
@@ -893,7 +893,7 @@
                                                 VerticalAlignment="Center"
                                                 FontSize="12"
                                                 Foreground="{DynamicResource TextPrimaryBrush}"
-                                                Text="Disabled" />
+                                                Text="已禁用" />
                                         </StackPanel>
                                     </Button>
                                 </StackPanel>
@@ -904,7 +904,7 @@
                         Margin="4,0"
                         Command="{Binding ShowAboutCommand}"
                         Style="{StaticResource HeaderIconButtonStyle}"
-                        ToolTip="About">
+                        ToolTip="关于">
                         <Grid>
                             <Path
                                 Width="18"
@@ -1014,37 +1014,37 @@
                                 Command="{Binding RestoreProfileCommand}"
                                 IconFill="{DynamicResource TextSecondaryBrush}"
                                 IconPath="{DynamicResource IconNvidia}"
-                                Text="Defaults"
-                                ToolTip="Restore profile to NVIDIA default settings" />
+                                Text="默认"
+                                ToolTip="将配置文件恢复为 NVIDIA 默认设置" />
 
                             <controls:ActionBarButton
                                 Command="{Binding CreateProfileCommand}"
                                 Cursor="Hand"
                                 IconFill="{DynamicResource TextSecondaryBrush}"
                                 IconPath="{DynamicResource IconAdd}"
-                                Text="New"
-                                ToolTip="Create a new profile" />
+                                Text="新建"
+                                ToolTip="新建配置文件" />
 
                             <controls:ActionBarButton
                                 Command="{Binding DeleteProfileCommand}"
                                 IconFill="{DynamicResource TextSecondaryBrush}"
                                 IconPath="{DynamicResource IconDelete}"
-                                Text="Delete"
-                                ToolTip="Delete the current profile" />
+                                Text="删除"
+                                ToolTip="删除当前配置文件" />
 
                             <controls:ActionBarButton
                                 Command="{Binding CopySettingsCommand}"
                                 IconFill="{DynamicResource TextSecondaryBrush}"
                                 IconPath="{DynamicResource IconCopy}"
-                                Text="Copy"
-                                ToolTip="Copy settings to clipboard" />
+                                Text="复制"
+                                ToolTip="复制设置到剪贴板" />
 
                             <controls:ActionBarButton
                                 Command="{Binding OpenBitEditorCommand}"
                                 IconFill="{DynamicResource TextSecondaryBrush}"
                                 IconPath="{DynamicResource IconBitEditor}"
-                                Text="Bit Editor"
-                                ToolTip="Open the Bit Value Editor" />
+                                Text="位编辑器"
+                                ToolTip="打开位值编辑器" />
 
                             <Separator Style="{StaticResource ToolBarSeparatorStyle}" />
 
@@ -1053,16 +1053,16 @@
                                 Click="ExportButton_Click"
                                 IconFill="{DynamicResource TextSecondaryBrush}"
                                 IconPath="{DynamicResource IconExport}"
-                                Text="Export"
-                                ToolTip="Export profiles to file" />
+                                Text="导出"
+                                ToolTip="导出配置文件到文件" />
 
                             <controls:ActionBarButton
                                 x:Name="ImportButton"
                                 Click="ImportButton_Click"
                                 IconFill="{DynamicResource TextSecondaryBrush}"
                                 IconPath="{DynamicResource IconImport}"
-                                Text="Import"
-                                ToolTip="Import profiles from file" />
+                                Text="导入"
+                                ToolTip="从文件导入配置文件" />
                         </StackPanel>
 
                         <StackPanel Grid.Column="2" Orientation="Horizontal">
@@ -1070,14 +1070,14 @@
                                 Command="{Binding RefreshCommand}"
                                 IconFill="{DynamicResource TextSecondaryBrush}"
                                 IconPath="{DynamicResource IconRefresh}"
-                                Text="Refresh"
-                                ToolTip="Refresh all profiles" />
+                                Text="刷新"
+                                ToolTip="刷新所有配置文件" />
 
                             <controls:ActionBarButton
                                 Command="{Binding RefreshCurrentProfileCommand}"
                                 IconPath="{DynamicResource IconRestore}"
-                                Text="Reset"
-                                ToolTip="Reset current profile changes">
+                                Text="重置"
+                                ToolTip="重置当前配置文件的更改">
                                 <controls:ActionBarButton.Style>
                                     <Style BasedOn="{StaticResource {x:Type controls:ActionBarButton}}" TargetType="controls:ActionBarButton">
                                         <Setter Property="IconFill" Value="{DynamicResource TextSecondaryBrush}" />
@@ -1097,9 +1097,9 @@
                                 Cursor="Hand"
                                 FontWeight="Bold"
                                 IconPath="{DynamicResource IconApply}"
-                                Text="Apply Changes"
+                                Text="应用更改"
                                 TextFontSize="11"
-                                ToolTip="Apply all changes and save">
+                                ToolTip="应用所有更改并保存">
                                 <controls:ActionBarButton.Style>
                                     <Style BasedOn="{StaticResource {x:Type controls:ActionBarButton}}" TargetType="controls:ActionBarButton">
                                         <Setter Property="IconFill" Value="{DynamicResource TextSecondaryBrush}" />
@@ -1142,9 +1142,9 @@
                             Orientation="Horizontal">
                             <Button
                                 Click="AddApplication_Click"
-                                Content="Add Application"
+                                Content="添加应用程序"
                                 Style="{StaticResource AddApplicationButtonStyle}"
-                                ToolTip="Add a new application to this profile" />
+                                ToolTip="向此配置文件添加新应用程序" />
                             <Separator Margin="0,4,0,4" Style="{StaticResource ToolBarSeparatorStyle}" />
                         </StackPanel>
 
@@ -1177,7 +1177,7 @@
                             Grid.Column="2"
                             IsChecked="{Binding ApplicationsExpanded}"
                             Style="{StaticResource ApplicationsExpandToggleStyle}"
-                            ToolTip="Show all applications / collapse to a single row"
+                            ToolTip="显示全部应用程序 / 折叠为单行"
                             Visibility="{Binding ApplicationsHasOverflow, Converter={StaticResource BoolToVisibilityConverter}}" />
                     </Grid>
                 </Border>
@@ -1201,9 +1201,9 @@
                         <controls:SearchableTextBox
                             x:Name="FilterTextBox"
                             Grid.Column="0"
-                            Placeholder="Search settings..."
+                            Placeholder="搜索设置..."
                             Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}"
-                            ToolTip="Search settings by name (Ctrl+F)" />
+                            ToolTip="按名称搜索设置 (Ctrl+F)" />
 
                         <!--  Source Filter Flyout  -->
                         <Grid Grid.Column="1" Margin="12,0,0,0">
@@ -1211,7 +1211,7 @@
                                 x:Name="FilterSourceButton"
                                 Command="{Binding ToggleFilterMenuCommand}"
                                 Style="{StaticResource FilterSourceButtonStyle}"
-                                ToolTip="Filter setting and value sources">
+                                ToolTip="筛选设置与数值来源">
                                 <Path
                                     Width="16"
                                     Height="16"
@@ -1243,7 +1243,7 @@
                                             ShadowDepth="4" />
                                     </Border.Effect>
                                     <StackPanel Width="252">
-                                        <TextBlock Style="{StaticResource FilterFlyoutCategoryHeaderStyle}" Text="SETTING SOURCE" />
+                                        <TextBlock Style="{StaticResource FilterFlyoutCategoryHeaderStyle}" Text="设置来源" />
                                         <CheckBox IsChecked="{Binding SettingSourceCommon}" Style="{StaticResource FilterFlyoutCheckBoxStyle}">
                                             <StackPanel Orientation="Horizontal">
                                                 <Path
@@ -1257,7 +1257,7 @@
                                                 <TextBlock
                                                     VerticalAlignment="Center"
                                                     FontSize="12"
-                                                    Text="Common (CSN)" />
+                                                    Text="通用 (CSN)" />
                                             </StackPanel>
                                         </CheckBox>
                                         <CheckBox IsChecked="{Binding SettingSourceDriver}" Style="{StaticResource FilterFlyoutCheckBoxStyle}">
@@ -1273,7 +1273,7 @@
                                                 <TextBlock
                                                     VerticalAlignment="Center"
                                                     FontSize="12"
-                                                    Text="Driver API" />
+                                                    Text="驱动 API" />
                                             </StackPanel>
                                         </CheckBox>
                                         <CheckBox IsChecked="{Binding SettingSourceConstants}" Style="{StaticResource FilterFlyoutCheckBoxStyle}">
@@ -1289,7 +1289,7 @@
                                                 <TextBlock
                                                     VerticalAlignment="Center"
                                                     FontSize="12"
-                                                    Text="Driver Constants" />
+                                                    Text="驱动常量" />
                                             </StackPanel>
                                         </CheckBox>
                                         <CheckBox IsChecked="{Binding SettingSourceReference}" IsEnabled="{Binding IsReferenceAvailable}" Style="{StaticResource FilterFlyoutCheckBoxStyle}">
@@ -1305,7 +1305,7 @@
                                                 <TextBlock
                                                     VerticalAlignment="Center"
                                                     FontSize="12"
-                                                    Text="Reference" />
+                                                    Text="参考数据" />
                                             </StackPanel>
                                         </CheckBox>
                                         <CheckBox IsChecked="{Binding SettingSourceScan}" IsEnabled="{Binding IsScanAvailable}" Style="{StaticResource FilterFlyoutCheckBoxStyle}">
@@ -1321,7 +1321,7 @@
                                                 <TextBlock
                                                     VerticalAlignment="Center"
                                                     FontSize="12"
-                                                    Text="Predefined Scan" />
+                                                    Text="预定义扫描" />
                                             </StackPanel>
                                         </CheckBox>
 
@@ -1333,34 +1333,34 @@
                                         <CheckBox
                                             IsChecked="{Binding ShowActiveFromDisabledSources}"
                                             Style="{StaticResource FilterFlyoutCheckBoxStyle}"
-                                            ToolTip="Even if a setting source is off, show its settings when they are active in the current profile (predefined, global, or user value).">
+                                            ToolTip="即使关闭了某个设置来源，当其设置在当前配置文件中处于活动状态（预定义、全局或用户设置值）时仍会显示。">
                                             <TextBlock
                                                 VerticalAlignment="Center"
                                                 FontSize="11"
                                                 Foreground="{DynamicResource TextSecondaryBrush}"
-                                                Text="Show active settings from disabled sources"
+                                                Text="显示已关闭来源中的活动设置"
                                                 TextWrapping="Wrap" />
                                         </CheckBox>
                                         <CheckBox
                                             IsChecked="{Binding AllowMetaFromInactiveSources}"
                                             Style="{StaticResource FilterFlyoutCheckBoxStyle}"
-                                            ToolTip="Allow a setting's name and description to come from sources that are currently disabled.">
+                                            ToolTip="允许设置的名称和描述来自当前已关闭的来源。">
                                             <TextBlock
                                                 VerticalAlignment="Center"
                                                 FontSize="11"
                                                 Foreground="{DynamicResource TextSecondaryBrush}"
-                                                Text="Name &amp; description from inactive sources"
+                                                Text="名称和描述取自未启用的来源"
                                                 TextWrapping="Wrap" />
                                         </CheckBox>
                                         <CheckBox
                                             IsChecked="{Binding ShowSettingIdInName}"
                                             Style="{StaticResource FilterFlyoutCheckBoxStyle}"
-                                            ToolTip="Prefix the setting id to the setting name in the list (double-click a name to copy its id).">
+                                            ToolTip="在列表中将设置 ID 前缀显示在设置名称之前（双击名称可复制其 ID）。">
                                             <TextBlock
                                                 VerticalAlignment="Center"
                                                 FontSize="11"
                                                 Foreground="{DynamicResource TextSecondaryBrush}"
-                                                Text="Add setting ID to name"
+                                                Text="在名称中显示设置 ID"
                                                 TextWrapping="Wrap" />
                                         </CheckBox>
 
@@ -1369,7 +1369,7 @@
                                             Margin="6,8"
                                             Background="{DynamicResource ControlBorderBrush}" />
 
-                                        <TextBlock Style="{StaticResource FilterFlyoutCategoryHeaderStyle}" Text="VALUE SOURCE" />
+                                        <TextBlock Style="{StaticResource FilterFlyoutCategoryHeaderStyle}" Text="数值来源" />
                                         <CheckBox IsChecked="{Binding ValueSourceCommon}" Style="{StaticResource FilterFlyoutCheckBoxStyle}">
                                             <StackPanel Orientation="Horizontal">
                                                 <Path
@@ -1383,7 +1383,7 @@
                                                 <TextBlock
                                                     VerticalAlignment="Center"
                                                     FontSize="12"
-                                                    Text="Common (CSN)" />
+                                                    Text="通用 (CSN)" />
                                             </StackPanel>
                                         </CheckBox>
                                         <CheckBox IsChecked="{Binding ValueSourceDriver}" Style="{StaticResource FilterFlyoutCheckBoxStyle}">
@@ -1399,7 +1399,7 @@
                                                 <TextBlock
                                                     VerticalAlignment="Center"
                                                     FontSize="12"
-                                                    Text="Driver API" />
+                                                    Text="驱动 API" />
                                             </StackPanel>
                                         </CheckBox>
                                         <CheckBox IsChecked="{Binding ValueSourceConstants}" Style="{StaticResource FilterFlyoutCheckBoxStyle}">
@@ -1415,7 +1415,7 @@
                                                 <TextBlock
                                                     VerticalAlignment="Center"
                                                     FontSize="12"
-                                                    Text="Driver Constants" />
+                                                    Text="驱动常量" />
                                             </StackPanel>
                                         </CheckBox>
                                         <CheckBox IsChecked="{Binding ValueSourceReference}" IsEnabled="{Binding IsReferenceAvailable}" Style="{StaticResource FilterFlyoutCheckBoxStyle}">
@@ -1431,7 +1431,7 @@
                                                 <TextBlock
                                                     VerticalAlignment="Center"
                                                     FontSize="12"
-                                                    Text="Reference" />
+                                                    Text="参考数据" />
                                             </StackPanel>
                                         </CheckBox>
                                         <CheckBox IsChecked="{Binding ValueSourceScan}" IsEnabled="{Binding IsScanAvailable}" Style="{StaticResource FilterFlyoutCheckBoxStyle}">
@@ -1447,7 +1447,7 @@
                                                 <TextBlock
                                                     VerticalAlignment="Center"
                                                     FontSize="12"
-                                                    Text="Predefined Scan" />
+                                                    Text="预定义扫描" />
                                             </StackPanel>
                                         </CheckBox>
 
@@ -1459,35 +1459,35 @@
                                         <CheckBox
                                             IsChecked="{Binding MergeDistinctValues}"
                                             Style="{StaticResource FilterFlyoutCheckBoxStyle}"
-                                            ToolTip="Merge entries with the same value from different sources into one (highest-priority name wins).">
+                                            ToolTip="将不同来源中相同数值的条目合并为一项（优先显示高优先级的名称）。">
                                             <TextBlock
                                                 VerticalAlignment="Center"
                                                 FontSize="11"
                                                 Foreground="{DynamicResource TextSecondaryBrush}"
-                                                Text="Merge distinct values"
+                                                Text="合并不同数值"
                                                 TextWrapping="Wrap" />
                                         </CheckBox>
                                         <CheckBox
                                             IsChecked="{Binding AddPredefinedAppListToCommon}"
                                             IsEnabled="{Binding IsScanAvailable}"
                                             Style="{StaticResource FilterFlyoutCheckBoxStyle}"
-                                            ToolTip="Let the predefined scan (app list) values merge into the matching common values instead of showing as separate rows.">
+                                            ToolTip="让预定义扫描（应用程序列表）的数值合并到对应的通用数值中，而不是单独显示一行。">
                                             <TextBlock
                                                 VerticalAlignment="Center"
                                                 FontSize="11"
                                                 Foreground="{DynamicResource TextSecondaryBrush}"
-                                                Text="Add predefined app list to common values"
+                                                Text="将预定义应用程序列表并入通用数值"
                                                 TextWrapping="Wrap" />
                                         </CheckBox>
                                         <CheckBox
                                             IsChecked="{Binding AddRawValueToCommon}"
                                             Style="{StaticResource FilterFlyoutCheckBoxStyle}"
-                                            ToolTip="Prefix the raw value to common (CSN) value names, the way the other sources already show it.">
+                                            ToolTip="将原始数值作为前缀显示在通用 (CSN) 数值名称之前，与其他来源的显示方式保持一致。">
                                             <TextBlock
                                                 VerticalAlignment="Center"
                                                 FontSize="11"
                                                 Foreground="{DynamicResource TextSecondaryBrush}"
-                                                Text="Add raw value to common values"
+                                                Text="在通用数值中添加原始值"
                                                 TextWrapping="Wrap" />
                                         </CheckBox>
 
@@ -1498,7 +1498,7 @@
                                         <Button
                                             Command="{Binding ResetFilterDefaultsCommand}"
                                             Style="{StaticResource FilterFlyoutResetButtonStyle}"
-                                            ToolTip="Reset all filter and value options to their defaults">
+                                            ToolTip="将所有筛选和数值选项恢复为默认">
                                             <StackPanel Orientation="Horizontal">
                                                 <Path
                                                     Width="13"
@@ -1511,7 +1511,7 @@
                                                 <TextBlock
                                                     VerticalAlignment="Center"
                                                     FontSize="12"
-                                                    Text="Restore defaults" />
+                                                    Text="恢复默认" />
                                             </StackPanel>
                                         </Button>
                                     </StackPanel>
@@ -1525,7 +1525,7 @@
                             Margin="8,0,0,0"
                             IsChecked="{Binding ModifiedOnly}"
                             Style="{StaticResource ModifiedOnlyToggleStyle}"
-                            ToolTip="Show active or modified settings only" />
+                            ToolTip="仅显示活动或已修改的设置" />
                     </Grid>
 
                     <!--  Settings ListView  -->
@@ -1660,7 +1660,7 @@
                                                 CommandParameter="{Binding}"
                                                 Cursor="Hand"
                                                 Style="{StaticResource IconButtonStyle}"
-                                                ToolTip="Toggle Favorite">
+                                                ToolTip="切换收藏">
                                                 <Path
                                                     Width="14"
                                                     Height="14"
@@ -1718,7 +1718,7 @@
                                             Command="{Binding DataContext.ResetValueCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"
                                             CommandParameter="{Binding}"
                                             Style="{StaticResource IconButtonStyle}"
-                                            ToolTip="Reset setting to default value"
+                                            ToolTip="将设置重置为默认值"
                                             Visibility="Collapsed">
                                             <Path
                                                 x:Name="RestoreButtonIcon"
@@ -1745,12 +1745,12 @@
                                     <DataTrigger Binding="{Binding IsModified}" Value="True">
                                         <Setter TargetName="SettingStateIcon" Property="Data" Value="{StaticResource IconUser}" />
                                         <Setter TargetName="SettingStateIcon" Property="Fill" Value="{DynamicResource TextPrimaryBrush}" />
-                                        <Setter TargetName="SettingStateIcon" Property="ToolTip" Value="User-modified Setting" />
+                                        <Setter TargetName="SettingStateIcon" Property="ToolTip" Value="用户修改的设置" />
                                         <Setter TargetName="SettingNameText" Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
                                         <Setter TargetName="DisplayText" Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
                                         <Setter TargetName="HexValueText" Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
                                         <Setter TargetName="RestoreButton" Property="Visibility" Value="Visible" />
-                                        <Setter TargetName="RestoreButton" Property="ToolTip" Value="Reset unsaved change" />
+                                        <Setter TargetName="RestoreButton" Property="ToolTip" Value="重置未保存的更改" />
                                         <Setter TargetName="RestoreButtonIcon" Property="Data" Value="{StaticResource IconRestore}" />
                                     </DataTrigger>
                                     <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Value="True">
@@ -1764,7 +1764,7 @@
                                             <Condition Binding="{Binding IsModified}" Value="False" />
                                         </MultiDataTrigger.Conditions>
                                         <Setter TargetName="RestoreButton" Property="Visibility" Value="Visible" />
-                                        <Setter TargetName="RestoreButton" Property="ToolTip" Value="Reset setting to NVIDIA default value" />
+                                        <Setter TargetName="RestoreButton" Property="ToolTip" Value="将设置重置为 NVIDIA 默认值" />
                                         <Setter TargetName="RestoreButtonIcon" Property="Data" Value="{StaticResource IconNvidia}" />
                                     </MultiDataTrigger>
                                 </DataTemplate.Triggers>
@@ -1789,7 +1789,7 @@
                             FontSize="10"
                             FontWeight="Bold"
                             Foreground="{DynamicResource NvidiaGreenBrush}"
-                            Text="DESCRIPTION" />
+                            Text="描述" />
                         <TextBox
                             MaxHeight="80"
                             Padding="0"
@@ -1822,7 +1822,7 @@
                                 FontSize="11"
                                 FontWeight="SemiBold"
                                 Foreground="{DynamicResource NvidiaGreenBrush}"
-                                Text="Scanning profiles" />
+                                Text="正在扫描配置文件" />
                             <ProgressBar
                                 Grid.Column="1"
                                 Height="12"
@@ -1857,7 +1857,7 @@
                                     Visibility="{Binding StatusModeText, Converter={StaticResource StringNotEmptyToVisibilityConverter}}"
                                     WindowChrome.IsHitTestVisibleInChrome="True">
                                     <Button.ToolTip>
-                                        <ToolTip Content="Custom settings are loaded from an external CustomSettingNames.xml file" />
+                                        <ToolTip Content="自定义设置正从外部 CustomSettingNames.xml 文件加载" />
                                     </Button.ToolTip>
                                 </Button>
                                 <Button

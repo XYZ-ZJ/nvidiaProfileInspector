@@ -94,16 +94,16 @@ namespace nvidiaProfileInspector.UI.Converters
                 switch (state)
                 {
                     case SettingState.NvidiaSetting:
-                        return "Nvidia Setting - Defined by NVIDIA driver";
+                        return "NVIDIA 设置 - 由 NVIDIA 驱动定义";
                     case SettingState.UserdefinedSetting:
-                        return "User-defined Setting - Custom setting added by user";
+                        return "用户自定义设置 - 由用户添加的自定义设置";
                     case SettingState.GlobalSetting:
-                        return "Global Setting - Applies to all applications";
+                        return "全局设置 - 应用于所有应用程序";
                     default:
-                        return "Setting";
+                        return "设置";
                 }
             }
-            return "Setting";
+            return "设置";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -225,10 +225,10 @@ namespace nvidiaProfileInspector.UI.Converters
             {
                 bool isVisible = buttons switch
                 {
-                    MessageBoxButton.OK => buttonName == "OK",
-                    MessageBoxButton.OKCancel => buttonName == "OK" || buttonName == "Cancel",
-                    MessageBoxButton.YesNo => buttonName == "Yes" || buttonName == "No",
-                    MessageBoxButton.YesNoCancel => buttonName == "Yes" || buttonName == "No" || buttonName == "Cancel",
+                    MessageBoxButton.OK => buttonName == "OK" || buttonName == "确定",
+                    MessageBoxButton.OKCancel => buttonName == "OK" || buttonName == "确定" || buttonName == "Cancel" || buttonName == "取消",
+                    MessageBoxButton.YesNo => buttonName == "Yes" || buttonName == "No" || buttonName == "是" || buttonName == "否",
+                    MessageBoxButton.YesNoCancel => buttonName == "Yes" || buttonName == "No" || buttonName == "Cancel" || buttonName == "是" || buttonName == "否" || buttonName == "取消",
                     _ => false
                 };
                 return isVisible ? Visibility.Visible : Visibility.Collapsed;

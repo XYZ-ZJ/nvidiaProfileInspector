@@ -123,7 +123,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
                 LoadSettings();
             }
 
-            OnShowMessage += (msg) => ShowSnackbar(msg, "Information");
+            OnShowMessage += (msg) => ShowSnackbar(msg, "信息");
             OnShowError += (msg) => ShowSnackbar(msg, "Error");
 
             Settings.CollectionChanged += OnSettingsCollectionChanged;
@@ -135,8 +135,8 @@ namespace nvidiaProfileInspector.UI.ViewModels
         {
             IsDesignMode = true;
             _profileNames.Add(new ProfileListItem(DrsSettingsService.GlobalProfileName, false));
-            _profileNames.Add(new ProfileListItem("Sample Game Profile", false));
-            _currentProfile = "Sample Game Profile";
+            _profileNames.Add(new ProfileListItem("示例游戏配置文件", false));
+            _currentProfile = "示例游戏配置文件";
 
             foreach (var item in DesignTimeData.SampleSettings)
             {
@@ -508,7 +508,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
         }
 
         public string StatusVersionText => VersionText;
-        public string StatusUpdateHintText => "Update available";
+        public string StatusUpdateHintText => "有可用更新";
         public bool IsExternalCustomSettingsIndicatorVisible => App.Bootstrapper?.IsExternalCustomSettings ?? false;
 
         public bool IsAppearanceMenuOpen
@@ -616,7 +616,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
         public event Action<string> OnShowMessage;
         public event Action<string> OnShowError;
 
-        public async void ShowSnackbar(string message, string type = "Information")
+        public async void ShowSnackbar(string message, string type = "信息")
         {
             SnackbarMessage = message;
             SnackbarType = type;
@@ -692,7 +692,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
                 var branch = DrsSettingsServiceBase.DriverBranch;
                 if (version > 0)
                 {
-                    var driverText = $"Driver: {version.ToString("0.00", CultureInfo.InvariantCulture)}";
+                    var driverText = $"驱动：{version.ToString("0.00", CultureInfo.InvariantCulture)}";
                     if (!string.IsNullOrEmpty(branch))
                         driverText += $" ({branch})";
                     parts.Add(driverText);
@@ -700,13 +700,13 @@ namespace nvidiaProfileInspector.UI.ViewModels
                 }
                 else
                 {
-                    StatusDriverText = "Driver unavailable";
+                    StatusDriverText = "驱动不可用";
                 }
 
                 // Profile count
                 var profileCount = _settingService.GetTotalProfileCount();
-                parts.Add($"{profileCount} profiles");
-                StatusProfilesText = $"{profileCount} profiles";
+                parts.Add($"{profileCount} 个配置文件");
+                StatusProfilesText = $"{profileCount} 个配置文件";
 
                 // Known / total settings
                 var knownIds = new HashSet<uint>();
@@ -720,18 +720,18 @@ namespace nvidiaProfileInspector.UI.ViewModels
                     // Show total known settings loaded from all XMLs, known settings that are in use in profiles, and total number seen in profiles.
                     var scannedIds = new HashSet<uint>(cachedSettings.Select(s => s.SettingId));
                     var inUse = knownIds.Count(id => scannedIds.Contains(id));
-                    var settingsText = $"{knownIds.Count} known ({inUse} in profiles / {scannedIds.Count} seen)";
+                    var settingsText = $"已知 {knownIds.Count} 个（其中 {inUse} 个用于配置文件 / 扫描到 {scannedIds.Count} 个）";
                     parts.Add(settingsText);
                     StatusSettingsText = settingsText;
                 }
                 else
                 {
-                    var settingsText = $"{knownIds.Count} known settings";
+                    var settingsText = $"已知 {knownIds.Count} 个设置";
                     parts.Add(settingsText);
                     StatusSettingsText = settingsText;
                 }
 
-                StatusModeText = IsExternalCustomSettingsIndicatorVisible ? "CSN file override" : "";
+                StatusModeText = IsExternalCustomSettingsIndicatorVisible ? "CSN 文件覆盖" : "";
 
                 // Try fetching OTA profile update datetime
                 var otaRelPath = @"NVIDIA Corporation\Drs\update.bin";
@@ -746,12 +746,12 @@ namespace nvidiaProfileInspector.UI.ViewModels
                 {
                     var otaTime = File.GetLastWriteTime(otaPath);
                     var otaText = $"OTA {otaTime:g}";
-                    parts.Add($"Last OTA profile update: {otaTime:g}");
+                    parts.Add($"上次 OTA 配置文件更新：{otaTime:g}");
                     StatusOtaText = otaText;
                 }
                 else
                 {
-                    StatusOtaText = "OTA unknown";
+                    StatusOtaText = "OTA 时间未知";
                 }
 
                 StatusBarText = string.Join("  \u2022  ", parts);
@@ -950,7 +950,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
             var description = _metaService.GetDescription(_selectedSetting.SettingId);
             description = DlssHelper.ReplaceDlssVersions(description ?? "");
             if (!string.IsNullOrEmpty(_selectedSetting.AlternateNames))
-                description = $"Alternate names: {_selectedSetting.AlternateNames}\r\n{description}";
+                description = $"备用名称：{_selectedSetting.AlternateNames}\r\n{description}";
 
             SettingDescription = description?.Replace("\\r\\n", "\r\n") ?? "";
 
@@ -974,7 +974,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
                     if (DrsUtil.TryParseDwordSettingValue(settingMeta, item.SelectedValue, out _))
                         return true;
 
-                    errorMessage = "Enter a valid DWORD value.";
+                    errorMessage = "请输入有效的 DWORD 值。";
                     return false;
                 }
 
@@ -984,7 +984,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
                     if (DrsUtil.TryParseQwordSettingValue(settingMeta, item.SelectedValue, out _))
                         return true;
 
-                    errorMessage = "Enter a valid QWORD value.";
+                    errorMessage = "请输入有效的 QWORD 值。";
                     return false;
                 }
 
@@ -994,7 +994,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
                     if (DrsUtil.ParseBinarySettingValue(settingMeta, item.SelectedValue) != null)
                         return true;
 
-                    errorMessage = "Enter a valid binary value.";
+                    errorMessage = "请输入有效的二进制值。";
                     return false;
                 }
 
@@ -1145,7 +1145,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
                 _settingService.StoreSettingsToProfile(_currentProfile, settingsToStore);
                 AddModifiedProfileToCache(_currentProfile, _scannerService.UserProfiles.Contains(_currentProfile));
                 RefreshCurrentProfile();
-                ShowSnackbar("Settings applied successfully.", "Success");
+                ShowSnackbar("设置应用成功。", "成功");
             }
         }
 
@@ -1227,8 +1227,8 @@ namespace nvidiaProfileInspector.UI.ViewModels
         private Task RestoreProfileAsync()
         {
             var result = MessageBoxEx.Show(
-                "Restore profile to NVIDIA driver defaults?",
-                "Restore Profile",
+                "要将配置文件恢复为 NVIDIA 驱动默认值吗？",
+                "恢复配置文件",
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Question);
 
@@ -1247,7 +1247,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
 
                 RefreshCurrentProfile();
 
-                ShowSnackbar($"Profile successfully restored to driver defaults!", "Success");
+                ShowSnackbar($"配置文件已成功恢复为驱动默认值！", "成功");
             }
 
             return Task.CompletedTask;
@@ -1260,13 +1260,13 @@ namespace nvidiaProfileInspector.UI.ViewModels
 
         public bool ShowCreateProfileDialog(string nameProposal, string applicationName = null)
         {
-            var dialog = new Views.Dialogs.InputDialog("Create Profile",
-            "Enter a unique name for your new custom driver profile.",
+            var dialog = new Views.Dialogs.InputDialog("新建配置文件",
+            "请为新的自定义驱动配置文件输入唯一名称。",
             nameProposal ?? "", false, (val) =>
             {
-                if (string.IsNullOrWhiteSpace(val)) return "Expected is a unique profile name.";
+                if (string.IsNullOrWhiteSpace(val)) return "需要输入唯一的配置文件名称。";
                 if (_profileNames.Any(p => p.ProfileName.Equals(val, StringComparison.OrdinalIgnoreCase)))
-                    return "Profile name must be unique.";
+                    return "配置文件名称必须唯一。";
                 return null;
             });
             dialog.Owner = App.Current.MainWindow;
@@ -1292,8 +1292,8 @@ namespace nvidiaProfileInspector.UI.ViewModels
         private Task DeleteProfileAsync()
         {
             var result = MessageBoxEx.Show(
-                $"Really delete this profile?\r\n\r\nNote: NVIDIA predefined profiles can not be restored until next driver installation!",
-                "Delete Profile",
+                $"确定要删除此配置文件吗？\r\n\r\n注意：NVIDIA 预定义配置文件在下次安装驱动之前将无法恢复！",
+                "删除配置文件",
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Question);
 
@@ -1306,7 +1306,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
                     RemoveModifiedProfileFromCache(deletedProfileName);
                     RefreshProfilesCombo(null);
                     SetCurrentProfile(DrsSettingsService.GlobalProfileName, forceNotify: true);
-                    ShowSnackbar("Profile successfully deleted.", "Success");
+                    ShowSnackbar("配置文件删除成功。", "成功");
                 }
                 catch (Exception ex)
                 {
@@ -1324,15 +1324,15 @@ namespace nvidiaProfileInspector.UI.ViewModels
 
         public void AddApplication()
         {
-            var dialog = new Views.Dialogs.InputDialog("Add Application",
-            "To link a new application, enter its filename (e.g. game.exe), relative path, or UWP ID. If you need to link a specific file location, use the browse button for an absolute path.",
+            var dialog = new Views.Dialogs.InputDialog("添加应用程序",
+            "要关联新的应用程序，请输入其文件名（如 game.exe）、相对路径或 UWP ID。如需关联特定文件位置，请使用浏览按钮输入绝对路径。",
             "", true, (val) =>
             {
                 if (string.IsNullOrWhiteSpace(val)) 
-                    return "Expected a filename, relative path, UWP ID, or absolute path.";
+                    return "需要输入文件名、相对路径、UWP ID 或绝对路径。";
 
                 if (Applications.Any(_ => _.Name.Equals(NormalizeNvidiaAppPath(val), StringComparison.InvariantCultureIgnoreCase)))
-                    return "Application already exists in this profile.";
+                    return "此配置文件中已存在该应用程序。";
 
                 string findFileStr = "FindFile=";
                 int findFileIndex = val.IndexOf(findFileStr, StringComparison.OrdinalIgnoreCase);
@@ -1341,7 +1341,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
                     string appName = val.Substring(0, findFileIndex).Trim().Trim('"');
                     string findFile = val.Substring(findFileIndex + findFileStr.Length).Trim().Trim('"');
                     if (string.IsNullOrWhiteSpace(appName) || string.IsNullOrWhiteSpace(findFile))
-                        return "Expected a valid filename and FindFile string.";
+                        return "需要输入有效的文件名和 FindFile 字符串。";
                 }
                 return null;
             });
@@ -1360,7 +1360,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
                         string findFile = dialog.InputValue.Substring(findFileIndex + findFileStr.Length).Trim().Trim('"');
                         if (string.IsNullOrWhiteSpace(appName) || string.IsNullOrWhiteSpace(findFile))
                         {
-                            OnShowError?.Invoke("Invalid application name or FindFile string.");
+                            OnShowError?.Invoke("应用程序名称或 FindFile 字符串无效。");
                             return;
                         }
                         _settingService.AddApplication(_currentProfile, appName, findFile);
@@ -1378,9 +1378,9 @@ namespace nvidiaProfileInspector.UI.ViewModels
                     {
                         var profileName = _settingService.GetProfileNameByExeName(dialog.InputValue);
                         if (!string.IsNullOrWhiteSpace(profileName))
-                            OnShowError?.Invoke($"Application already in use by profile '{profileName}'");
+                            OnShowError?.Invoke($"应用程序已被配置文件“{profileName}”占用");
                         else
-                            OnShowError?.Invoke("Application already in use by other profile");
+                            OnShowError?.Invoke("应用程序已被其他配置文件占用");
                     }
                     else
                         OnShowError?.Invoke(ex.Message);
@@ -1393,8 +1393,8 @@ namespace nvidiaProfileInspector.UI.ViewModels
             if (app != null)
             {
                 var result = MessageBoxEx.Show(
-                    $"Remove application '{app.Name}' from profile?",
-                    "Remove Application",
+                    $"要从配置文件中移除应用程序“{app.Name}”吗？",
+                    "移除应用程序",
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question);
 
@@ -1411,7 +1411,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
             var dialog = new Microsoft.Win32.SaveFileDialog
             {
                 DefaultExt = "*.nip",
-                Filter = "NVIDIA PROFILE INSPECTOR Profiles|*.nip",
+                Filter = "NVIDIA PROFILE INSPECTOR 配置文件|*.nip",
                 FileName = ProfileExportFileNames.ForCurrentProfile(_currentProfile)
             };
 
@@ -1419,7 +1419,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
             {
                 var profiles = new List<string> { _currentProfile };
                 _importService.ExportProfiles(profiles, dialog.FileName, includePredefined);
-                ShowSnackbar("Current Profile exported successfully!", "Success");
+                ShowSnackbar("当前配置文件导出成功！", "成功");
             }
         }
 
@@ -1427,14 +1427,14 @@ namespace nvidiaProfileInspector.UI.ViewModels
         {
             if (IsScanning)
             {
-                ShowSnackbar("Waiting for the modified profiles scan to finish...", "Information");
+                ShowSnackbar("正在等待已修改配置文件的扫描完成...", "信息");
                 await WaitForActiveScanAsync();
             }
 
             var dialog = new Microsoft.Win32.SaveFileDialog
             {
                 DefaultExt = "*.nip",
-                Filter = "NVIDIA PROFILE INSPECTOR Profiles|*.nip",
+                Filter = "NVIDIA PROFILE INSPECTOR 配置文件|*.nip",
                 FileName = ProfileExportFileNames.ForAllCustomizedProfiles()
             };
 
@@ -1450,7 +1450,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
                 else
                     _importService.ExportAllCustomizedProfiles(dialog.FileName);
 
-                ShowSnackbar("All customized profiles exported successfully!", "Success");
+                ShowSnackbar("所有自定义配置文件导出成功！", "成功");
             }
         }
 
@@ -1459,14 +1459,14 @@ namespace nvidiaProfileInspector.UI.ViewModels
             var dialog = new Microsoft.Win32.SaveFileDialog
             {
                 DefaultExt = "*.txt",
-                Filter = "NVIDIA Text Files|*.txt",
+                Filter = "NVIDIA 文本文件|*.txt",
                 FileName = ProfileExportFileNames.ForNvidiaTextProfiles()
             };
 
             if (dialog.ShowDialog() == true)
             {
                 _importService.ExportAllProfilesToNvidiaTextFile(dialog.FileName);
-                ShowSnackbar("All profiles exported in NVIDIA text format!", "Success");
+                ShowSnackbar("所有配置文件已按 NVIDIA 文本格式导出！", "成功");
             }
         }
 
@@ -1475,7 +1475,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
             var dialog = new Microsoft.Win32.OpenFileDialog
             {
                 DefaultExt = "*.nip",
-                Filter = "NVIDIA PROFILE INSPECTOR Profiles|*.nip"
+                Filter = "NVIDIA PROFILE INSPECTOR 配置文件|*.nip"
             };
 
             if (dialog.ShowDialog() == true)
@@ -1493,7 +1493,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
             }
             catch (Exception ex)
             {
-                OnShowError?.Invoke($"Import Error: {ex.Message}");
+                OnShowError?.Invoke($"导入错误：{ex.Message}");
                 return ex.Message;
             }
         }
@@ -1516,7 +1516,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
             }
             catch (Exception ex)
             {
-                OnShowError?.Invoke($"Import Error: {ex.Message}");
+                OnShowError?.Invoke($"导入错误：{ex.Message}");
                 return ex.Message;
             }
         }
@@ -1540,7 +1540,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
             var dialog = new Microsoft.Win32.OpenFileDialog
             {
                 DefaultExt = "*.nip",
-                Filter = "NVIDIA PROFILE INSPECTOR Profiles|*.nip",
+                Filter = "NVIDIA PROFILE INSPECTOR 配置文件|*.nip",
                 Multiselect = true
             };
 
@@ -1548,9 +1548,9 @@ namespace nvidiaProfileInspector.UI.ViewModels
             {
                 var report = ImportFiles(dialog.FileNames);
                 if (string.IsNullOrEmpty(report))
-                    ShowSnackbar("Profile(s) successfully imported!", "Success");
+                    ShowSnackbar("配置文件导入成功！", "成功");
                 else
-                    ShowSnackbar($"Some profile(s) could not imported!\r\n\r\n{report}", "Warning");
+                    ShowSnackbar($"部分配置文件无法导入！\r\n\r\n{report}", "警告");
             }
         }
 
@@ -1559,7 +1559,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
             var dialog = new Microsoft.Win32.OpenFileDialog
             {
                 DefaultExt = "*.nip",
-                Filter = "NVIDIA PROFILE INSPECTOR Profiles|*.nip",
+                Filter = "NVIDIA PROFILE INSPECTOR 配置文件|*.nip",
                 Multiselect = true
             };
 
@@ -1579,13 +1579,13 @@ namespace nvidiaProfileInspector.UI.ViewModels
                     RefreshCurrentProfile();
 
                     if (string.IsNullOrEmpty(report))
-                        ShowSnackbar("Imported profile(s) were merged successfully.", "Success");
+                        ShowSnackbar("导入的配置文件合并成功。", "成功");
                     else
-                        ShowSnackbar($"Merge completed with warnings:\r\n\r\n{report}", "Warning");
+                        ShowSnackbar($"合并完成，但存在警告：\r\n\r\n{report}", "警告");
                 }
                 catch (Exception ex)
                 {
-                    OnShowError?.Invoke($"Import Error: {ex.Message}");
+                    OnShowError?.Invoke($"导入错误：{ex.Message}");
                 }
             }
         }
@@ -1595,7 +1595,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
             var dialog = new Microsoft.Win32.OpenFileDialog
             {
                 DefaultExt = "*.txt",
-                Filter = "NVIDIA Text Files|*.txt"
+                Filter = "NVIDIA 文本文件|*.txt"
             };
 
             if (dialog.ShowDialog() == true)
@@ -1604,11 +1604,11 @@ namespace nvidiaProfileInspector.UI.ViewModels
                 {
                     _importService.ImportAllProfilesFromNvidiaTextFile(dialog.FileName);
                     RefreshCurrentProfile();
-                    ShowSnackbar("All profiles imported successfully!", "Success");
+                    ShowSnackbar("所有配置文件导入成功！", "成功");
                 }
                 catch (Exception ex)
                 {
-                    OnShowError?.Invoke($"Import Error: {ex.Message}");
+                    OnShowError?.Invoke($"导入错误：{ex.Message}");
                 }
             }
         }
@@ -1671,14 +1671,14 @@ namespace nvidiaProfileInspector.UI.ViewModels
             _settingService.ResetValue(_currentProfile, selectedSettingId, out removeFromModified);
             RefreshCurrentProfile();
 
-            ShowSnackbar($"\"{settingName}\" restored to NVIDIA default.", "Success");
+            ShowSnackbar($"“{settingName}”已恢复为 NVIDIA 默认值。", "成功");
         }
 
         private void CopySettingsToClipboard()
         {
             var sb = new System.Text.StringBuilder();
             sb.AppendLine($"### NVIDIA PROFILE INSPECTOR ###");
-            sb.AppendLine($"Profile: {_currentProfile}");
+            sb.AppendLine($"配置文件：{_currentProfile}");
             sb.AppendLine();
 
             foreach (var item in Settings.Where(x => x.IsUserDefined))
@@ -1687,7 +1687,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
             }
 
             Clipboard.SetText(sb.ToString());
-            ShowSnackbar("Settings copied to clipboard!", "Success");
+            ShowSnackbar("设置已复制到剪贴板！", "成功");
         }
 
         // Double-click on a setting name copies its setting id to the clipboard.
@@ -1699,7 +1699,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
             try
             {
                 Clipboard.SetText(item.SettingIdHex);
-                ShowSnackbar($"Setting ID {item.SettingIdHex} copied to clipboard.", "Success");
+                ShowSnackbar($"设置 ID {item.SettingIdHex} 已复制到剪贴板。", "成功");
             }
             catch
             {
@@ -2024,15 +2024,15 @@ namespace nvidiaProfileInspector.UI.ViewModels
         private void ShowCustomSettingsOverrideInfo()
         {
             MessageBoxEx.Show(
-                "CustomSettingNames.xml is being loaded from the application directory instead of the embedded default resource.\r\n\r\n" +
-                "This usually means the custom setting metadata has been overridden locally. That can be intentional, but it also means names, groups, descriptions, and values may be older than the build you are running.\r\n\r\n" +
-                "Possible consequences:\r\n" +
-                "- outdated or mismatched setting names\r\n" +
-                "- stale descriptions or value labels\r\n" +
-                "- missing newly embedded settings or metadata fixes\r\n" +
-                "- grouping differences compared to the embedded defaults\r\n\r\n" +
-                "If that is not intended, remove or rename the external CustomSettingNames.xml in the app folder so the embedded resource is used again.",
-                "Custom Settings Override",
+                "CustomSettingNames.xml 正在从应用程序目录加载，而非使用内嵌的默认资源。\r\n\r\n" +
+                "这通常表示自定义设置元数据已被本地覆盖。这可能是有意为之，但也意味着名称、分组、描述和数值可能比您正在运行的程序版本更旧。\r\n\r\n" +
+                "可能的影响：\r\n" +
+                "- 设置名称过时或不匹配\r\n" +
+                "- 描述或数值标签过时\r\n" +
+                "- 缺少新内嵌的设置或元数据修复\r\n" +
+                "- 与内嵌默认值相比存在分组差异\r\n\r\n" +
+                "如果并非有意如此，请删除或重命名应用程序文件夹中的外部 CustomSettingNames.xml，以恢复使用内嵌资源。",
+                "自定义设置覆盖",
                 MessageBoxButton.OK,
                 MessageBoxImage.Warning);
         }
@@ -2072,7 +2072,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
 
             IsScanning = true;
             ScanProgress = 0;
-            ScanStatus = "Scanning profiles...";
+            ScanStatus = "正在扫描配置文件...";
 
             _scanCancellationTokenSource = new CancellationTokenSource();
             var progress = new Progress<int>(value =>
@@ -2082,7 +2082,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
                     _uiContext.Post(_ =>
                     {
                         ScanProgress = value;
-                        ScanStatus = $"Scanning... {value}%";
+                        ScanStatus = $"正在扫描... {value}%";
                         if (_taskbarList != null && _windowHandle != IntPtr.Zero)
                         {
                             _taskbarList.SetProgressState(_windowHandle, TBPFLAG.TBPF_NORMAL);

@@ -52,7 +52,7 @@
                     <Button
                         Command="{Binding CancelCommand}"
                         Style="{StaticResource CloseWindowButtonStyle}"
-                        ToolTip="Close">
+                        ToolTip="关闭">
                         <Path
                             Width="10"
                             Height="10"
@@ -109,9 +109,9 @@
                 <Button
                     MinWidth="80"
                     Command="{Binding OKCommand}"
-                    Content="OK"
+                    Content="确定"
                     Style="{StaticResource AccentButtonStyle}"
-                    ToolTip="Confirm action"
+                    ToolTip="确认操作"
                     Visibility="{Binding Buttons, Converter={StaticResource MessageBoxButtonToVisibilityConverter}, ConverterParameter=OK}" />
 
                 <!--  Yes Button  -->
@@ -119,9 +119,9 @@
                     MinWidth="80"
                     Margin="8,0,0,0"
                     Command="{Binding YesCommand}"
-                    Content="Yes"
+                    Content="是"
                     Style="{StaticResource AccentButtonStyle}"
-                    ToolTip="Confirm yes"
+                    ToolTip="确认：是"
                     Visibility="{Binding Buttons, Converter={StaticResource MessageBoxButtonToVisibilityConverter}, ConverterParameter=Yes}" />
 
                 <!--  No Button  -->
@@ -130,9 +130,9 @@
                     MinWidth="80"
                     Margin="8,0,0,0"
                     Command="{Binding NoCommand}"
-                    Content="No"
+                    Content="否"
                     Style="{StaticResource DarkButtonStyle}"
-                    ToolTip="Confirm no"
+                    ToolTip="确认：否"
                     Visibility="{Binding Buttons, Converter={StaticResource MessageBoxButtonToVisibilityConverter}, ConverterParameter=No}" />
 
                 <!--  Cancel Button  -->
@@ -141,9 +141,9 @@
                     MinWidth="80"
                     Margin="8,0,0,0"
                     Command="{Binding CancelCommand}"
-                    Content="Cancel"
+                    Content="取消"
                     Style="{StaticResource DarkButtonStyle}"
-                    ToolTip="Cancel action"
+                    ToolTip="取消操作"
                     Visibility="{Binding Buttons, Converter={StaticResource MessageBoxButtonToVisibilityConverter}, ConverterParameter=Cancel}" />
             </StackPanel>
         </Border>

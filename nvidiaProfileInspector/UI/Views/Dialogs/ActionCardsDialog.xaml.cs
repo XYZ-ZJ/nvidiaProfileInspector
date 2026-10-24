@@ -89,8 +89,8 @@ namespace nvidiaProfileInspector.UI.Views.Dialogs
 
         private void ShowProfileSelectionView()
         {
-            this.Title = "Select Profiles";
-            this.SubtitleTextBlock.Text = "Please choose the profiles you want to export:";
+            this.Title = "选择配置文件";
+            this.SubtitleTextBlock.Text = "请选择要导出的配置文件：";
             this.SubtitleTextBlock.Visibility = Visibility.Visible;
 
             if (_selectionViewModel == null)
@@ -128,7 +128,7 @@ namespace nvidiaProfileInspector.UI.Views.Dialogs
             if (!_selectionViewModel.HasSelectedProfiles)
             {
                 if (Owner is MainWindow mainWindow && mainWindow.DataContext is MainViewModel mainViewModel)
-                    mainViewModel.ShowSnackbar("Please select at least one profile to export.", "Warning");
+                    mainViewModel.ShowSnackbar("请至少选择一个要导出的配置文件。", "Warning");
                 return;
             }
 
@@ -136,7 +136,7 @@ namespace nvidiaProfileInspector.UI.Views.Dialogs
 
             var dialog = new SaveFileDialog
             {
-                Filter = "NVIDIA PROFILE INSPECTOR Profiles|*.nip",
+                Filter = "NVIDIA PROFILE INSPECTOR 配置文件|*.nip",
                 DefaultExt = "*.nip",
                 FileName = ProfileExportFileNames.ForSelectedProfiles()
             };
@@ -146,7 +146,7 @@ namespace nvidiaProfileInspector.UI.Views.Dialogs
                 _selectionViewModel.ExportSelectedProfiles(dialog.FileName);
 
                 if (Owner is MainWindow mainWindow && mainWindow.DataContext is MainViewModel mainViewModel)
-                    mainViewModel.ShowSnackbar("All selected profiles exported successfully!", "Success");
+                    mainViewModel.ShowSnackbar("所有选中的配置文件导出成功！", "Success");
 
                 DialogResult = true;
                 Close();

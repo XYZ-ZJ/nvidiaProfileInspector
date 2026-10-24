@@ -69,7 +69,7 @@ namespace nvidiaProfileInspector.UI.Views
             if (!Native.NVAPI2.NvapiDrsWrapper.Instance.IsMockMode)
                 return;
 
-            const string mockTitle = "NVIDIA PROFILE INSPECTOR - MOCK!";
+            const string mockTitle = "NVIDIA PROFILE INSPECTOR - 模拟模式！";
             Title = mockTitle;
         }
 
@@ -203,13 +203,13 @@ namespace nvidiaProfileInspector.UI.Views
             {
                 var profile = profiles.Split(';')[0];
                 _viewModel.SelectProfile(profile);
-                _viewModel.ShowSnackbar($"Profile for '{applicationName}' has been selected!", "Success");
+                _viewModel.ShowSnackbar($"已选中“{applicationName}”的配置文件！", "成功");
                 return;
             }
 
             var result = MessageBoxViewModel.Show(
-                "Would you like to create a new profile for this application?",
-                "Profile not found!",
+                "要为此应用程序新建配置文件吗？",
+                "未找到配置文件！",
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Question);
 
@@ -379,13 +379,13 @@ namespace nvidiaProfileInspector.UI.Views
         {
             MessageBoxEx.Show(
                 "CustomSettingNames.xml is being loaded from the application directory instead of the embedded default resource.\r\n\r\n" +
-                "This means the custom setting metadata has been overridden locally. That can be intentional, but names, groups, descriptions, and values may no longer match the embedded defaults shipped with this build.\r\n\r\n" +
+                "这表示自定义设置元数据已被本地覆盖。这可能是有意为之，但名称、分组、描述和数值可能不再与此版本随附的内嵌默认值一致。\r\n\r\n" +
                 "Possible consequences:\r\n" +
                 "- outdated or mismatched setting names\r\n" +
                 "- stale descriptions or value labels\r\n" +
                 "- missing newer embedded settings or metadata fixes\r\n" +
                 "- grouping differences compared to the embedded defaults\r\n\r\n" +
-                "If that is not intended, remove or rename the external CustomSettingNames.xml in the application folder so the embedded resource is used again.",
+                "如果并非有意如此，请删除或重命名应用程序文件夹中的外部 CustomSettingNames.xml，以恢复使用内嵌资源。",
                 "Custom Settings Override",
                 MessageBoxButton.OK,
                 MessageBoxImage.Warning);
@@ -413,7 +413,7 @@ namespace nvidiaProfileInspector.UI.Views
             if (string.Equals(message, App.LegacyProfilesImportedMessage, StringComparison.InvariantCulture))
             {
                 _viewModel.RefreshCommand.Execute(null);
-                _viewModel.ShowSnackbar("Profile(s) imported successfully!", "Success");
+                _viewModel.ShowSnackbar("配置文件导入成功！", "成功");
                 return true;
             }
 
@@ -457,11 +457,11 @@ namespace nvidiaProfileInspector.UI.Views
                 if (string.IsNullOrWhiteSpace(report))
                 {
                     if (showSuccessNotification)
-                        _viewModel.ShowSnackbar("Profile(s) imported successfully!", "Success");
+                        _viewModel.ShowSnackbar("配置文件导入成功！", "成功");
                 }
                 else
                 {
-                    MessageBoxViewModel.Show($"Some profile(s) could not be imported!\r\n\r\n{report}", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBoxViewModel.Show($"部分配置文件无法导入！\r\n\r\n{report}", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
             catch (Exception ex)
@@ -544,47 +544,47 @@ namespace nvidiaProfileInspector.UI.Views
             {
                 new ActionCardsDialog.ActionCardItem
                 {
-                    Title = "Export current profile only",
-                    Description = "Export only the settings you have changed for the currently selected profile.",
+                    Title = "仅导出当前配置文件",
+                    Description = "仅导出当前所选配置文件中您修改过的设置。",
                     IconPath = (Geometry)Application.Current.Resources["IconExport"],
                     IconFill = (Brush)Application.Current.Resources["TextSecondaryBrush"],
                     Command = () => ExportCurrentOnly_Click(null, null)
                 },
                 new ActionCardsDialog.ActionCardItem
                 {
-                    Title = "Export current profile including predefined",
-                    Description = "Export the current profile with all its settings, including those not modified by you.",
+                    Title = "导出当前配置文件（含预定义设置）",
+                    Description = "导出当前配置文件的全部设置，包括您未修改过的设置。",
                     IconPath = (Geometry)Application.Current.Resources["IconExport"],
                     IconFill = (Brush)Application.Current.Resources["TextSecondaryBrush"],
                     Command = () => ExportCurrentWithPredefined_Click(null, null)
                 },
                 new ActionCardsDialog.ActionCardItem
                 {
-                    Title = "Select profiles to export",
-                    Description = "Select multiple modified profiles from a list to export them into a single file.",
+                    Title = "选择要导出的配置文件",
+                    Description = "从列表中选择多个已修改的配置文件，导出到单个文件中。",
                     IconPath = (Geometry)Application.Current.Resources["IconUser"],
                     IconFill = (Brush)Application.Current.Resources["TextSecondaryBrush"],
                     ShowProfileSelection = true
                 },
                 new ActionCardsDialog.ActionCardItem
                 {
-                    Title = "Export all customized profiles",
-                    Description = "Export all profiles that contain user-defined or modified settings.",
+                    Title = "导出所有自定义配置文件",
+                    Description = "导出所有包含用户自定义或已修改设置的配置文件。",
                     IconPath = (Geometry)Application.Current.Resources["IconUser"],
                     IconFill = (Brush)Application.Current.Resources["TextSecondaryBrush"],
                     Command = () => ExportAllCustomized_Click(null, null)
                 },
                 new ActionCardsDialog.ActionCardItem
                 {
-                    Title = "Export all profiles (NVIDIA Text Format)",
-                    Description = "Export the entire profile database in the official NVIDIA text format.",
+                    Title = "导出所有配置文件（NVIDIA 文本格式）",
+                    Description = "以 NVIDIA 官方文本格式导出整个配置文件数据库。",
                     IconPath = (Geometry)Application.Current.Resources["IconNvidia"],
                     IconFill = (Brush)Application.Current.Resources["TextSecondaryBrush"],
                     Command = () => ExportAllNVIDIA_Click(null, null)
                 }
             };
 
-            var dialog = new ActionCardsDialog("Export Profiles", items, "Choose how you want to export your profiles:");
+            var dialog = new ActionCardsDialog("导出配置文件", items, "请选择配置文件的导出方式：");
             dialog.Owner = this;
             if (dialog.ShowDialog() == true && dialog.SelectedItem != null)
             {
@@ -598,31 +598,31 @@ namespace nvidiaProfileInspector.UI.Views
             {
                 new ActionCardsDialog.ActionCardItem
                 {
-                    Title = "Replace imported profile(s)",
-                    Description = "Import one or more .nip files and replace each imported profile's current apps and settings with the file contents.",
+                    Title = "替换导入的配置文件",
+                    Description = "导入一个或多个 .nip 文件，并用文件内容替换每个所导入配置文件当前的应用程序和设置。",
                     IconPath = (Geometry)Application.Current.Resources["IconImport"],
                     IconFill = (Brush)Application.Current.Resources["TextSecondaryBrush"],
                     Command = () => ImportProfiles_Click(null, null)
                 },
                 new ActionCardsDialog.ActionCardItem
                 {
-                    Title = "Merge imported profile(s)",
-                    Description = "Import one or more .nip files and merge them into the profile targets named inside the files. Existing target values stay unless the import contains the same setting, in which case the imported value wins.",
+                    Title = "合并导入的配置文件",
+                    Description = "导入一个或多个 .nip 文件，并将其合并到文件中指定的配置文件。目标中的现有值保持不变，除非导入包含相同设置——此时以导入值优先。",
                     IconPath = (Geometry)Application.Current.Resources["IconUser"],
                     IconFill = (Brush)Application.Current.Resources["TextSecondaryBrush"],
                     Command = () => MergeImportedProfiles_Click(null, null)
                 },
                 new ActionCardsDialog.ActionCardItem
                 {
-                    Title = "Import (replace) all driver profiles",
-                    Description = "Restore or replace all profiles from an NVIDIA Text Format file.",
+                    Title = "导入（替换）所有驱动配置文件",
+                    Description = "从 NVIDIA 文本格式文件中还原或替换所有配置文件。",
                     IconPath = (Geometry)Application.Current.Resources["IconNvidia"],
                     IconFill = (Brush)Application.Current.Resources["TextSecondaryBrush"],
                     Command = () => ImportAllNVIDIA_Click(null, null)
                 }
             };
 
-            var dialog = new ActionCardsDialog("Import Profiles", items, "Choose how you want to import profiles:");
+            var dialog = new ActionCardsDialog("导入配置文件", items, "请选择配置文件的导入方式：");
             dialog.Owner = this;
             if (dialog.ShowDialog() == true && dialog.SelectedItem != null)
             {

@@ -60,7 +60,7 @@ namespace nvidiaProfileInspector.Services
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Error toggling theme: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"切换主题时出错：{ex.Message}");
             }
         }
 
@@ -73,7 +73,7 @@ namespace nvidiaProfileInspector.Services
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Error setting theme: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"设置主题时出错：{ex.Message}");
             }
         }
 
@@ -126,7 +126,7 @@ namespace nvidiaProfileInspector.Services
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Error saving theme preference: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"保存主题偏好时出错：{ex.Message}");
             }
         }
 
@@ -140,7 +140,7 @@ namespace nvidiaProfileInspector.Services
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Error saving density preference: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"保存显示密度偏好时出错：{ex.Message}");
             }
         }
 

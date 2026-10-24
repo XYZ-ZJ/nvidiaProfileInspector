@@ -108,7 +108,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
                         targetCollection.RemoveAt(currentIndex);
                         targetCollection.Insert(targetIndex, matchingTarget);
 
-                        Debug.WriteLine($"Moved item with SettingId {matchingTarget.SettingId} from index {currentIndex} to {targetIndex}");
+                        Debug.WriteLine($"已将 SettingId 为 {matchingTarget.SettingId} 的项从索引 {currentIndex} 移动到 {targetIndex}");
                     }
                     targetIndex++;
                 }
@@ -118,14 +118,14 @@ namespace nvidiaProfileInspector.UI.ViewModels
 #if DEBUG
             if (sourceItems.Count != targetCollection.Count)
             {
-                Debug.WriteLine($"Warning: Source and target collections have different counts after patching. Source count: {sourceItems.Count}, Target count: {targetCollection.Count}");
+                Debug.WriteLine($"警告：修补后源集合与目标集合的数量不一致。源数量：{sourceItems.Count}，目标数量：{targetCollection.Count}");
             }
 
             for (int i = 0; i < sourceItems.Count && i < targetCollection.Count; i++)
             {
                 if (sourceItems[i].SettingId != targetCollection[i].SettingId)
                 {
-                    Debug.WriteLine($"Warning: Mismatch at index {i}. Source SettingId: {sourceItems[i].SettingId}, Target SettingId: {targetCollection[i].SettingId}");
+                    Debug.WriteLine($"警告：索引 {i} 处不匹配。源 SettingId：{sourceItems[i].SettingId}，目标 SettingId：{targetCollection[i].SettingId}");
                 }
             }
 #endif

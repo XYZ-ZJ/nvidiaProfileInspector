@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:nvidiaProfileInspector.UI.ViewModels"
-    Title="About NVIDIA PROFILE INSPECTOR"
+    Title="关于 NVIDIA PROFILE INSPECTOR"
     Width="820"
     Height="Auto"
     MinWidth="760"
@@ -61,7 +61,7 @@
                     FontSize="18"
                     FontWeight="SemiBold"
                     Foreground="{DynamicResource TextPrimaryBrush}"
-                    Text="About" />
+                    Text="关于" />
 
                 <StackPanel
                     Grid.Column="1"
@@ -72,7 +72,7 @@
                     <Button
                         Click="Close_Click"
                         Style="{StaticResource CloseWindowButtonStyle}"
-                        ToolTip="Close">
+                        ToolTip="关闭">
                         <Path
                             Width="10"
                             Height="10"
@@ -119,7 +119,7 @@
                                 Foreground="{DynamicResource TextPrimaryBrush}"
                                 Text="NVIDIA PROFILE INSPECTOR" />
                             <StackPanel Margin="0,6,0,0" Orientation="Horizontal">
-                                <TextBlock Foreground="{DynamicResource TextSecondaryBrush}" Text="Version " />
+                                <TextBlock Foreground="{DynamicResource TextSecondaryBrush}" Text="版本 " />
                                 <TextBlock
                                     FontWeight="SemiBold"
                                     Foreground="{DynamicResource NvidiaGreenBrush}"
@@ -132,7 +132,7 @@
                                 HorizontalAlignment="Left"
                                 Command="{Binding OpenGitHubRepositoryCommand}"
                                 Style="{StaticResource LinkButtonStyle}"
-                                ToolTip="Open GitHub repository">
+                                ToolTip="打开 GitHub 仓库">
                                 <TextBlock
                                     FontSize="11"
                                     Foreground="{DynamicResource TextSecondaryBrush}"
@@ -155,7 +155,7 @@
                             FontSize="11"
                             FontWeight="Bold"
                             Foreground="{DynamicResource TextSecondaryBrush}"
-                            Text="UPDATES" />
+                            Text="更新" />
 
                         <Grid Margin="0,14,0,0">
                             <Grid.ColumnDefinitions>
@@ -173,7 +173,7 @@
                                 Margin="0,0,14,8"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextSecondaryBrush}"
-                                Text="Channel" />
+                                Text="通道" />
                             <ComboBox
                                 Grid.Row="0"
                                 Grid.Column="1"
@@ -188,7 +188,7 @@
                                 Margin="0,10,14,0"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextSecondaryBrush}"
-                                Text="Latest" />
+                                Text="最新版" />
                             <TextBlock
                                 Grid.Row="1"
                                 Grid.Column="1"
@@ -206,7 +206,7 @@
                             <TextBlock
                                 FontSize="12"
                                 Foreground="{DynamicResource TextPrimaryBrush}"
-                                Text="Check for available updates on startup" />
+                                Text="启动时检查可用更新" />
                         </CheckBox>
 
                         <Border
@@ -242,21 +242,21 @@
                                 MinWidth="96"
                                 Margin="0,0,8,0"
                                 Command="{Binding CheckForUpdateCommand}"
-                                Content="Check Now"
+                                Content="立即检查"
                                 Style="{StaticResource DarkButtonStyle}" />
                             <Button
                                 MinWidth="126"
                                 Command="{Binding InstallUpdateCommand}"
-                                Content="Install Update"
+                                Content="安装更新"
                                 IsEnabled="{Binding CanInstallUpdate}"
                                 Style="{StaticResource AccentButtonStyle}" />
                             <Button
                                 MinWidth="96"
                                 Margin="8,0,0,0"
                                 Command="{Binding OpenGitHubCommand}"
-                                Content="Releases"
+                                Content="发布页"
                                 Style="{StaticResource DarkButtonStyle}"
-                                ToolTip="Open GitHub releases" />
+                                ToolTip="打开 GitHub 发布页" />
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -275,7 +275,7 @@
                     FontSize="11"
                     FontWeight="Bold"
                     Foreground="{DynamicResource TextSecondaryBrush}"
-                    Text="CONTRIBUTORS" />
+                    Text="贡献者" />
 
                 <ScrollViewer
                     Grid.Row="1"
@@ -333,7 +333,7 @@
                                             Command="{Binding DataContext.OpenContributorProfileCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
                                             CommandParameter="{Binding ProfileUrl}"
                                             Style="{StaticResource IconButtonStyle}"
-                                            ToolTip="View Profile">
+                                            ToolTip="查看主页">
                                             <Path
                                                 Width="16"
                                                 Height="16"
@@ -361,7 +361,7 @@
                             FontSize="11"
                             FontWeight="Bold"
                             Foreground="{DynamicResource TextSecondaryBrush}"
-                            Text="STARTUP" />
+                            Text="启动" />
 
                         <CheckBox
                             Margin="0,12,0,0"
@@ -370,7 +370,7 @@
                             <TextBlock
                                 FontSize="12"
                                 Foreground="{DynamicResource TextPrimaryBrush}"
-                                Text="Disable splash screen on startup" />
+                                Text="启动时禁用启动画面" />
                         </CheckBox>
                     </StackPanel>
                 </Border>
@@ -388,7 +388,7 @@
                 MinWidth="100"
                 HorizontalAlignment="Right"
                 Click="Close_Click"
-                Content="Close"
+                Content="关闭"
                 Style="{StaticResource AccentButtonStyle}" />
         </Border>
     </Grid>

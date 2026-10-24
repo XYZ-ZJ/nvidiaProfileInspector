@@ -175,7 +175,7 @@
                             Margin="0,8,0,0"
                             FontSize="12"
                             Foreground="{DynamicResource TextSecondaryBrush}"
-                            Text="Preparing driver profiles and settings..." />
+                            Text="正在准备驱动配置文件与设置..." />
 
                         <Grid Margin="0,28,0,0" Height="2">
                             <Border Background="{DynamicResource Layer3BackgroundBrush}" CornerRadius="3" />
@@ -193,7 +193,7 @@
                                 FontSize="11"
                                 FontWeight="SemiBold"
                                 Foreground="{DynamicResource TextPrimaryBrush}"
-                                Text="Loading application" />
+                                Text="正在加载应用程序" />
                         </StackPanel>
                     </StackPanel>
                 </Grid>

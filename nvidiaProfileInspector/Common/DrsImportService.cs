@@ -223,12 +223,12 @@ namespace nvidiaProfileInspector.Common
                                 nvw.Instance.DRS_DeleteProfile(hSession, hProfile);
                             }
 
-                            sbFailedProfilesMessage.AppendLine(string.Format("Failed to import profile '{0}'", profile.ProfileName));
+                            sbFailedProfilesMessage.AppendLine(string.Format("导入配置文件“{0}”失败", profile.ProfileName));
                             var appEx = nex as NvapiAddApplicationException;
                             if (appEx != null)
                             {
                                 var profilesWithThisApp = _ScannerService.FindProfilesUsingApplication(appEx.ApplicationName);
-                                sbFailedProfilesMessage.AppendLine(string.Format("- application '{0}' is already in use by profile '{1}'", appEx.ApplicationName, profilesWithThisApp));
+                                sbFailedProfilesMessage.AppendLine(string.Format("- 应用程序“{0}”已被配置文件“{1}”占用", appEx.ApplicationName, profilesWithThisApp));
                                 appInUseHint = true;
                             }
                             else
@@ -244,7 +244,7 @@ namespace nvidiaProfileInspector.Common
 
             if (appInUseHint)
             {
-                sbFailedProfilesMessage.AppendLine("Hint: If just the profile name has been changed by nvidia, consider to manually modify the profile name inside the import file using a text editor.");
+                sbFailedProfilesMessage.AppendLine("提示：如果只是 NVIDIA 更改了配置文件名称，请考虑使用文本编辑器手动修改导入文件中的配置文件名称。");
             }
 
             return sbFailedProfilesMessage.ToString();
@@ -279,12 +279,12 @@ namespace nvidiaProfileInspector.Common
                         if (profileCreated)
                             nvw.Instance.DRS_DeleteProfile(hSession, hProfile);
 
-                        sbFailedMessage.AppendLine(string.Format("Failed to merge import into profile '{0}'", profile.ProfileName));
+                        sbFailedMessage.AppendLine(string.Format("将导入内容合并到配置文件“{0}”失败", profile.ProfileName));
                         var appEx = nex as NvapiAddApplicationException;
                         if (appEx != null)
                         {
                             var profilesWithThisApp = _ScannerService.FindProfilesUsingApplication(appEx.ApplicationName);
-                            sbFailedMessage.AppendLine(string.Format("- application '{0}' is already in use by profile '{1}'", appEx.ApplicationName, profilesWithThisApp));
+                            sbFailedMessage.AppendLine(string.Format("- 应用程序“{0}”已被配置文件“{1}”占用", appEx.ApplicationName, profilesWithThisApp));
                             appInUseHint = true;
                         }
                         else
@@ -300,7 +300,7 @@ namespace nvidiaProfileInspector.Common
 
             if (appInUseHint)
             {
-                sbFailedMessage.AppendLine("Hint: Remove conflicting applications from the other profile first, then retry the merge.");
+                sbFailedMessage.AppendLine("提示：请先从其他配置文件中移除冲突的应用程序，然后重试合并。");
             }
 
             return sbFailedMessage.ToString();

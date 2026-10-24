@@ -14,6 +14,7 @@ namespace nvidiaProfileInspector.Common.Updates
         {
             return string.Equals(value, "Prerelease", StringComparison.OrdinalIgnoreCase)
                 || string.Equals(value, "Pre-release", StringComparison.OrdinalIgnoreCase)
+                || string.Equals(value, "预发布版", StringComparison.OrdinalIgnoreCase)
                 ? UpdateChannel.Prerelease
                 : UpdateChannel.Release;
         }
@@ -25,7 +26,7 @@ namespace nvidiaProfileInspector.Common.Updates
 
         public static string ToDisplayName(UpdateChannel channel)
         {
-            return channel == UpdateChannel.Prerelease ? "Pre-release" : "Release";
+            return channel == UpdateChannel.Prerelease ? "预发布版" : "正式版";
         }
     }
 }

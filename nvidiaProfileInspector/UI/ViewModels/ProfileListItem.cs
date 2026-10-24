@@ -18,9 +18,9 @@ namespace nvidiaProfileInspector.UI.ViewModels
         public bool IsUserDefined { get; }
 
         public string ProfileTypeLabel =>
-            IsGlobal ? "Global driver profile" :
-            IsUserDefined ? "User-created profile" :
-            "NVIDIA predefined profile";
+            IsGlobal ? "全局驱动配置文件" :
+            IsUserDefined ? "用户创建的配置文件" :
+            "NVIDIA 预定义配置文件";
 
         public override string ToString()
         {

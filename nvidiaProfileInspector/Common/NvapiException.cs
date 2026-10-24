@@ -8,7 +8,7 @@ namespace nvidiaProfileInspector.Common
         public readonly NvAPI_Status Status;
 
         public NvapiException(string function, NvAPI_Status status)
-            : base(function + " failed: " + status)
+            : base(function + " 失败：" + status)
         {
             Status = status;
         }

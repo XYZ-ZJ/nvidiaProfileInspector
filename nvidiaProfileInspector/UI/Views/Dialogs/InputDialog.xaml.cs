@@ -25,8 +25,8 @@ namespace nvidiaProfileInspector.UI.Views.Dialogs
         {
             var dialog = new Microsoft.Win32.OpenFileDialog
             {
-                Filter = "Executables (*.exe)|*.exe|All files (*.*)|*.*",
-                Title = "Select Application Absolute Path"
+                Filter = "可执行文件 (*.exe)|*.exe|所有文件 (*.*)|*.*",
+                Title = "选择应用程序绝对路径"
             };
 
             if (dialog.ShowDialog() == true)

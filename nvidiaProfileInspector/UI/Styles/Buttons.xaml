@@ -328,10 +328,10 @@
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="ToolTip" Value="Restore Down" />
+                <Setter Property="ToolTip" Value="向下还原" />
             </DataTrigger>
             <DataTrigger Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType=Window}}" Value="Normal">
-                <Setter Property="ToolTip" Value="Maximize" />
+                <Setter Property="ToolTip" Value="最大化" />
             </DataTrigger>
         </Style.Triggers>
     </Style>

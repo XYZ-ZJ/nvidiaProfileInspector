@@ -47,7 +47,7 @@
                     <Button
                         Click="Cancel_Click"
                         Style="{StaticResource CloseWindowButtonStyle}"
-                        ToolTip="Close">
+                        ToolTip="关闭">
                         <Path
                             Width="10"
                             Height="10"
@@ -104,7 +104,7 @@
                 HorizontalAlignment="Left"
                 Click="BrowseButton_Click"
                 Style="{StaticResource DarkButtonStyle}"
-                ToolTip="Browse for application absolute path"
+                ToolTip="浏览应用程序绝对路径"
                 Visibility="{Binding AllowBrowse, Converter={StaticResource BoolToVisibilityConverter}}">
                 <StackPanel Orientation="Horizontal">
                     <Path
@@ -115,7 +115,7 @@
                         Data="{DynamicResource IconFolder}"
                         Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
                         Stretch="Uniform" />
-                    <TextBlock VerticalAlignment="Center" Text="Browse absolute path..." />
+                    <TextBlock VerticalAlignment="Center" Text="浏览绝对路径..." />
                 </StackPanel>
             </Button>
         </Grid>
@@ -132,17 +132,17 @@
                     MinWidth="80"
                     Margin="0,0,8,0"
                     Click="Cancel_Click"
-                    Content="Cancel"
+                    Content="取消"
                     Style="{StaticResource DarkButtonStyle}"
-                    ToolTip="Cancel and close" />
+                    ToolTip="取消并关闭" />
                 <Button
                     MinWidth="80"
                     IsDefault="True"
                     Click="OK_Click"
-                    Content="OK"
+                    Content="确定"
                     IsEnabled="{Binding CanSubmit}"
                     Style="{StaticResource AccentButtonStyle}"
-                    ToolTip="Confirm and save" />
+                    ToolTip="确认并保存" />
             </StackPanel>
         </Border>
     </Grid>

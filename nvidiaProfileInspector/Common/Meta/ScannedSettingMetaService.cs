@@ -31,7 +31,7 @@ namespace nvidiaProfileInspector.Common.Meta
         {
             var cached = CachedSettings.FirstOrDefault(x => x.SettingId.Equals(settingId));
             if (cached != null)
-                return string.Format("0x{0:X8} ({1} Profiles)", settingId, cached.ProfileCount);
+                return string.Format("0x{0:X8}（{1} 个配置文件）", settingId, cached.ProfileCount);
 
             return null;
         }

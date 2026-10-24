@@ -1,113 +1,104 @@
-![NVIDIA Profile Inspector main window](npi_screenshot.png)
+![NVIDIA Profile Inspector 主窗口](npi_screenshot.png)
 
-# NVIDIA Profile Inspector
+# NVIDIA Profile Inspector（中文汉化版）
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Windows-blue.svg)](#requirements)
-[![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.8-512BD4.svg)](#build-from-source)
+[![Platform](https://img.shields.io/badge/platform-Windows-blue.svg)](#系统要求)
+[![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.8-512BD4.svg)](#从源码构建)
 
-NVIDIA Profile Inspector is a Windows tool for editing NVIDIA driver profiles through
-the NVIDIA Driver Settings API. It exposes the driver profile database used by the
-NVIDIA Control Panel, adds access to many hidden or undocumented profile settings,
-and makes it easy to create, adjust, export, import, and restore per-application
-profiles.
+NVIDIA Profile Inspector 是一款 Windows 工具，用于通过 NVIDIA 驱动设置 API 编辑
+NVIDIA 驱动配置文件。它可以查看 NVIDIA 控制面板所使用的驱动配置文件数据库，开放大量
+隐藏或未公开的配置项，并支持按应用程序创建、调整、导出、导入和还原配置文件。
 
-The tool is intended for advanced users who want precise control over game and
-application profiles, compatibility flags, frame-rate limiters, synchronization
-options, texture filtering, SLI settings, Optimus behavior, DLSS overrides, and
-other driver-level switches that are not always available in the standard control
-panel.
+本工具面向需要精确控制游戏和应用程序配置文件的高级用户，可用于调整兼容性标志、
+帧率限制器、同步选项、纹理过滤、SLI 设置、Optimus 行为、DLSS 覆盖以及其他在
+标准控制面板中不总是可用的驱动级开关。
 
-## Highlights
+## 主要功能
 
-- View and edit global and per-application NVIDIA driver profiles.
-- Add or remove applications assigned to a profile.
-- Create custom profiles for games or applications missing from the driver database.
-- Search and filter profile settings quickly.
-- Switch between common, known, and extended driver settings.
-- Mark frequently used settings as favorites.
-- Inspect and edit bitmask-style settings with the built-in Bit Editor.
-- Export and import `.nip` profile backups.
-- Export and import NVIDIA text-format profile dumps.
-- Restore individual settings, whole profiles, or driver defaults.
-- Use modern DLSS, DLSS Ray Reconstruction, and DLSS Frame Generation override entries
-  where supported by the installed NVIDIA driver.
-- Choose from multiple UI themes, with optional Windows 11 backdrop effects.
-- Check GitHub releases from inside the app.
+- 查看和编辑全局及按应用程序的 NVIDIA 驱动配置文件。
+- 添加或移除配置文件所关联的应用程序。
+- 为驱动数据库中缺失的游戏或应用程序创建自定义配置文件。
+- 快速搜索和筛选配置文件设置。
+- 在通用、已知和扩展驱动设置之间切换。
+- 将常用设置标记为收藏。
+- 使用内置的位编辑器查看和编辑位掩码型设置。
+- 导出和导入 `.nip` 配置文件备份。
+- 导出和导入 NVIDIA 文本格式的配置文件转储。
+- 还原单个设置、整个配置文件或驱动默认值。
+- 在已安装的 NVIDIA 驱动支持的情况下，使用 DLSS、DLSS 光线重建和 DLSS 帧生成覆盖项。
+- 提供多种界面主题，可选 Windows 11 背景效果。
+- 在应用内检查 GitHub 发布版本。
 
-## Download
+## 下载
 
-Download the latest official build from the
-[GitHub Releases page](https://github.com/Orbmu2k/nvidiaProfileInspector/releases).
-Pre-release builds are available on the same page when experimental builds are
-published: [GitHub Pre-releases](https://github.com/Orbmu2k/nvidiaProfileInspector/releases?q=prerelease%3Atrue).
+请从 [GitHub 发布页面](https://github.com/Orbmu2k/nvidiaProfileInspector/releases)
+下载最新的官方构建。发布实验性构建时，同一页面也会提供预发布版本：
+[GitHub 预发布](https://github.com/Orbmu2k/nvidiaProfileInspector/releases?q=prerelease%3Atrue)。
 
-The release archive contains the executable and the files required to run it. Extract
-the archive to a writable folder and start `nvidiaProfileInspector.exe`.
+发布压缩包中包含可执行文件及其运行所需的文件。将压缩包解压到可写的文件夹，
+然后启动 `nvidiaProfileInspector.exe`。
 
-## Requirements
+## 系统要求
 
-- Windows with a compatible NVIDIA display driver installed.
-- An NVIDIA GPU supported by the installed driver.
-- .NET Framework 4.8.
-- Administrator privileges. NVIDIA Profile Inspector must be started elevated to write
-  changes to the NVIDIA driver profile database.
+- 已安装兼容 NVIDIA 显卡驱动程序的 Windows 系统。
+- 已安装驱动程序所支持的 NVIDIA GPU。
+- .NET Framework 4.8。
+- 管理员权限。NVIDIA Profile Inspector 必须以提升权限启动，才能写入 NVIDIA
+  驱动配置文件数据库。
 
-## Quick Start
+## 快速上手
 
-1. Start `nvidiaProfileInspector.exe`.
-2. Select a profile from the profile box, or type a game or application profile name
-   and press Enter to find the matching profile.
-3. Use the search field or setting mode selector to find the setting you want to edit.
-4. Change values in the settings list.
-5. Click **Apply Changes** to write the profile changes to the NVIDIA driver database.
+1. 启动 `nvidiaProfileInspector.exe`。
+2. 在配置文件框中选择一个配置文件，或输入游戏/应用程序的配置文件名称并按回车，
+   查找对应的配置文件。
+3. 使用搜索框或设置模式选择器找到要编辑的设置。
+4. 在设置列表中修改数值。
+5. 点击**应用更改**，将配置文件更改写入 NVIDIA 驱动数据库。
 
-Before experimenting with advanced settings, export the current profile or all custom
-profiles so you can restore a known-good state later.
+在尝试高级设置之前，建议先导出当前配置文件或所有自定义配置文件，
+以便之后恢复到已知良好的状态。
 
-## Profile Backups
+## 配置文件备份
 
-NVIDIA Profile Inspector can store profile changes as `.nip` files. This is useful for
-sharing a single game profile, keeping personal presets, or backing up modified driver
-profiles before a driver update.
+NVIDIA Profile Inspector 可以将配置文件更改保存为 `.nip` 文件。这适用于分享单个
+游戏配置文件、保存个人预设，或在更新驱动之前备份已修改的驱动配置文件。
 
-Recommended backup flow:
+推荐的备份流程：
 
-1. Select the profile you want to preserve.
-2. Use **Export** for a single profile, or export all customized profiles from the
-   export menu.
-3. Keep the generated `.nip` file somewhere outside the driver installation folder.
-4. Use **Import** to restore or merge profiles when needed.
+1. 选择要保留的配置文件。
+2. 对单个配置文件使用**导出**，或在导出菜单中导出所有自定义配置文件。
+3. 将生成的 `.nip` 文件保存在驱动安装文件夹之外的位置。
+4. 需要时使用**导入**来还原或合并配置文件。
 
-## Advanced Settings Notice
+## 高级设置须知
 
-Many entries exposed by NVIDIA Profile Inspector are hidden, experimental, deprecated,
-driver-version-specific, or undocumented by NVIDIA. Values that work well for one game,
-driver, or GPU generation may do nothing or cause issues elsewhere.
+NVIDIA Profile Inspector 暴露的许多条目是隐藏的、实验性的、已弃用的、
+依赖特定驱动版本的，或 NVIDIA 未公开文档的。对某个游戏、驱动版本或 GPU
+架构有效的数值，在其他环境下可能无效甚至引发问题。
 
-Use profile-specific changes whenever possible, keep backups, and prefer restoring a
-single setting or profile before resetting the whole driver database.
+请尽量使用配置文件级别的修改、保留备份，并在重置整个驱动数据库之前，
+优先尝试还原单个设置或单个配置文件。
 
-## Command Line
+## 命令行
 
-NVIDIA Profile Inspector supports a small set of startup options for imports, exports,
-and maintenance tasks.
+NVIDIA Profile Inspector 支持少量用于导入、导出和维护任务的启动参数。
 
 ```powershell
-nvidiaProfileInspector.exe [options] [profile1.nip] [profile2.nip ...]
+nvidiaProfileInspector.exe [选项] [profile1.nip] [profile2.nip ...]
 ```
 
-| Option | Description |
+| 选项 | 说明 |
 | --- | --- |
-| `<file>.nip` | Imports one or more `.nip` profile files. If an instance is already running, the files are forwarded to it. |
-| `-silentImport` | Imports `.nip` files without showing the normal success dialog. |
-| `-silent` | Alias for `-silentImport`. |
-| `-exportCustomized` | Exports all customized profiles to a timestamped `.nip` file next to the executable, then exits. |
-| `-createCSN` | Writes the embedded `CustomSettingNames.xml` file to the current working directory, then exits. |
-| `-showOnlyCSN` | Starts the UI with only customized settings shown. |
-| `-disableScan` | Starts the UI without the initial profile scan. |
+| `<文件>.nip` | 导入一个或多个 `.nip` 配置文件。如果程序已在运行，文件会被转发给现有实例。 |
+| `-silentImport` | 导入 `.nip` 文件时不显示常规的成功对话框。 |
+| `-silent` | `-silentImport` 的别名。 |
+| `-exportCustomized` | 将所有自定义配置文件导出到可执行文件旁带时间戳的 `.nip` 文件，然后退出。 |
+| `-createCSN` | 将内嵌的 `CustomSettingNames.xml` 写入当前工作目录，然后退出。 |
+| `-showOnlyCSN` | 启动界面时仅显示自定义设置。 |
+| `-disableScan` | 启动界面时不执行初始配置文件扫描。 |
 
-Examples:
+示例：
 
 ```powershell
 nvidiaProfileInspector.exe ".\MyProfile.nip"
@@ -115,9 +106,9 @@ nvidiaProfileInspector.exe -silentImport ".\ProfileA.nip" ".\ProfileB.nip"
 nvidiaProfileInspector.exe -exportCustomized
 ```
 
-## Build From Source
+## 从源码构建
 
-The project is a WPF desktop application targeting .NET Framework 4.8.
+本项目是面向 .NET Framework 4.8 的 WPF 桌面应用程序。
 
 ```powershell
 git clone https://github.com/Orbmu2k/nvidiaProfileInspector.git
@@ -125,40 +116,45 @@ cd nvidiaProfileInspector
 dotnet build .\nvidiaProfileInspector\nvidiaProfileInspector.sln -c Release
 ```
 
-The compiled application is written to:
+编译输出的应用程序位于：
 
 ```text
 nvidiaProfileInspector\bin\Release\net48\
 ```
 
-Visual Studio can also open `nvidiaProfileInspector\nvidiaProfileInspector.sln`
-directly.
+也可以直接用 Visual Studio 打开 `nvidiaProfileInspector\nvidiaProfileInspector.sln`。
 
-## Project Layout
+## 项目结构
 
 ```text
 nvidiaProfileInspector/
-+-- Common/                 Driver profile services, metadata, import/export logic
-+-- Native/                 NVAPI and Win32 interop
-+-- Services/               Application services such as themes and update checks
-+-- UI/                     WPF views, view models, controls, styles, and themes
-+-- CustomSettingNames.xml  User-friendly names and descriptions for known settings
-`-- Reference.xml           Reference setting metadata copied to the output folder
++-- Common/                 驱动配置文件服务、元数据、导入/导出逻辑
++-- Native/                 NVAPI 与 Win32 互操作
++-- Services/               应用程序服务（主题、更新检查等）
++-- UI/                     WPF 视图、视图模型、控件、样式与主题
++-- CustomSettingNames.xml  已知设置的用户友好名称与描述
+`-- Reference.xml           复制到输出文件夹的参考设置元数据
 ```
 
-## Helpful Resources
+## 相关资源
 
-- [GitHub Releases](https://github.com/Orbmu2k/nvidiaProfileInspector/releases)
-- [Issues and feature requests](https://github.com/Orbmu2k/nvidiaProfileInspector/issues)
-- [STEP Project NVIDIA Inspector guide](https://wiki.step-project.com/Guide:NVIDIA_Inspector)
+- [GitHub 发布](https://github.com/Orbmu2k/nvidiaProfileInspector/releases)
+- [问题与功能建议](https://github.com/Orbmu2k/nvidiaProfileInspector/issues)
+- [STEP Project NVIDIA Inspector 指南](https://wiki.step-project.com/Guide:NVIDIA_Inspector)
 - [PCGamingWiki: Nvidia Profile Inspector](https://www.pcgamingwiki.com/wiki/Nvidia_Profile_Inspector)
 
-## Contributing
+## 参与贡献
 
-Bug reports, setting updates, compatibility notes, and pull requests are welcome.
-When reporting issues, include the NVIDIA driver version, Windows version, GPU model,
-the affected profile or executable, and steps to reproduce the behavior.
+欢迎提交缺陷报告、设置更新、兼容性说明和拉取请求。报告问题时，请附上
+NVIDIA 驱动版本、Windows 版本、GPU 型号、受影响的配置文件或可执行文件，
+以及复现步骤。
 
-## License
+## 许可证
 
-NVIDIA Profile Inspector is released under the [MIT License](LICENSE).
+NVIDIA Profile Inspector 以 [MIT 许可证](LICENSE) 发布。
+
+## 汉化说明
+
+本版本为社区汉化版，在原版基础上对全部界面、设置名称、取值名称和描述进行了
+中文本地化，详见 [汉化说明.md](汉化说明.md)。原项目版权归原作者所有，
+按 MIT 许可证发布。

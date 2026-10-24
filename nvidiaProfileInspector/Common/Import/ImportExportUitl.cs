@@ -43,7 +43,7 @@ namespace nvidiaProfileInspector.Common.Import
                 case NVDRS_SETTING_TYPE.NVDRS_BINARY_TYPE:
                     return Convert.ToBase64String(settingUnion.binaryValue);
                 default:
-                    throw new Exception("invalid setting type");
+                    throw new Exception("无效的设置类型");
             }
         }
 
@@ -93,7 +93,7 @@ namespace nvidiaProfileInspector.Common.Import
                     union.binaryValue = Convert.FromBase64String(valueString);
                     break;
                 default:
-                    throw new Exception("invalid value type");
+                    throw new Exception("无效的数值类型");
             }
             return union;
         }

@@ -14,7 +14,7 @@ namespace nvidiaProfileInspector.Common.Updates
         public async Task PrepareAndRunAsync(UpdateRelease release)
         {
             if (release == null)
-                throw new InvalidOperationException("No update release was selected.");
+                throw new InvalidOperationException("未选择要更新的发布版本。");
 
             if (!release.IsInstallable)
                 throw new InvalidOperationException("The selected release does not contain a downloadable update package.");
@@ -71,7 +71,7 @@ namespace nvidiaProfileInspector.Common.Updates
                 return sourcePath;
             }
 
-            throw new InvalidOperationException("The selected update package format is not supported.");
+            throw new InvalidOperationException("所选更新包格式不受支持。");
         }
 
         private static string FindUpdateRoot(string extractPath)

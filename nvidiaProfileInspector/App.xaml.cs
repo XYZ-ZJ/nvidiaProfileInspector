@@ -149,7 +149,7 @@ namespace nvidiaProfileInspector
                 return true;
 
             CloseStartupSplashScreen();
-            MessageBoxViewModel.Show("No compatible NVIDIA Driver was detected on your system. Your NVIDIA GPU might be disabled.", "NVIDIA PROFILE INSPECTOR", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBoxViewModel.Show("未检测到兼容的 NVIDIA 驱动程序，您的 NVIDIA 显卡可能已被禁用。", "NVIDIA PROFILE INSPECTOR", MessageBoxButton.OK, MessageBoxImage.Error);
             Shutdown();
             return false;
         }
@@ -302,13 +302,13 @@ namespace nvidiaProfileInspector
                     return;
 
                 if (string.IsNullOrWhiteSpace(report))
-                    MessageBoxViewModel.Show("Profile(s) imported successfully!", "Import", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBoxViewModel.Show("配置文件导入成功！", "导入", MessageBoxButton.OK, MessageBoxImage.Information);
                 else
-                    MessageBoxViewModel.Show($"Some profile(s) could not be imported!\r\n\r\n{report}", "Import Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBoxViewModel.Show($"部分配置文件无法导入！\r\n\r\n{report}", "导入警告", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             catch (Exception ex)
             {
-                MessageBoxViewModel.Show($"Import Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBoxViewModel.Show($"导入错误：{ex.Message}", "错误", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -432,7 +432,7 @@ namespace nvidiaProfileInspector
                 return;
             }
 
-            MessageBoxViewModel.Show("NVIDIA PROFILE INSPECTOR is already running.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBoxViewModel.Show("NVIDIA PROFILE INSPECTOR 已在运行中。", "信息", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         internal static string BuildImportFilesMessage(IEnumerable<string> filePaths, ProfileImportMode? forcedMode)
@@ -559,11 +559,11 @@ namespace nvidiaProfileInspector
                 File.WriteAllText(_logFilePath, logContent.ToString());
 
                 // Show error message with link to log file
-                var message = $"An unexpected error occurred:\n\n{exception.Message}\n\n" +
-                             $"A detailed crash log has been created at:\n{_logFilePath}\n\n" +
-                             $"Would you like to open the log file location?";
+                var message = $"发生意外错误：\n\n{exception.Message}\n\n" +
+                             $"已生成详细的崩溃日志：\n{_logFilePath}\n\n" +
+                             $"是否打开日志文件所在位置？";
 
-                var result = MessageBoxViewModel.Show(message, "Error", MessageBoxButton.YesNo, MessageBoxImage.Error);
+                var result = MessageBoxViewModel.Show(message, "错误", MessageBoxButton.YesNo, MessageBoxImage.Error);
 
                 if (result == MessageBoxResult.Yes)
                 {
@@ -579,8 +579,8 @@ namespace nvidiaProfileInspector
             {
                 // If logging fails, show basic error
                 MessageBox.Show(
-                    $"An unexpected error occurred:\n\n{exception.Message}\n\n{ex.Message}",
-                    "Error",
+                    $"发生意外错误：\n\n{exception.Message}\n\n{ex.Message}",
+                    "错误",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }

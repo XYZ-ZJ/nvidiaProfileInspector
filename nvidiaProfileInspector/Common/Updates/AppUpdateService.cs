@@ -32,7 +32,7 @@ namespace nvidiaProfileInspector.Common.Updates
                     .FirstOrDefault();
 
                 if (latestRelease == null)
-                    return UpdateCheckResult.Unavailable("No release information is available.");
+                    return UpdateCheckResult.Unavailable("没有可用的发布信息。");
 
                 return latestRelease.Version > GetCurrentVersion()
                     ? UpdateCheckResult.Available(latestRelease)
@@ -40,14 +40,14 @@ namespace nvidiaProfileInspector.Common.Updates
             }
             catch
             {
-                return UpdateCheckResult.Unavailable("Could not read release information.");
+                return UpdateCheckResult.Unavailable("无法读取发布信息。");
             }
         }
 
         public Task PrepareInstallAsync(UpdateRelease release)
         {
             if (release == null || !release.IsInstallable)
-                throw new InvalidOperationException("The selected release does not contain a downloadable update package.");
+                throw new InvalidOperationException("所选发布不包含可下载的更新包。");
 
             return _installer.PrepareAndRunAsync(release);
         }

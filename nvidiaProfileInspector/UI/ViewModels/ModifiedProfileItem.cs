@@ -12,7 +12,7 @@ namespace nvidiaProfileInspector.UI.ViewModels
 
         public bool IsUserDefined { get; }
 
-        public string ProfileTypeLabel => IsUserDefined ? "User-created profile" : "NVIDIA predefined profile";
+        public string ProfileTypeLabel => IsUserDefined ? "用户创建的配置文件" : "NVIDIA 预定义配置文件";
 
         public override string ToString()
         {

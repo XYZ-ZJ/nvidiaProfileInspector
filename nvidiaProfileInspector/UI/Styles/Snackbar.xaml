@@ -108,7 +108,15 @@
                             <Setter TargetName="TypeIcon" Property="Data" Value="{StaticResource IconInfo}" />
                             <Setter TargetName="TypeIcon" Property="Fill" Value="{DynamicResource AccentBrush}" />
                         </Trigger>
+                        <Trigger Property="Type" Value="信息">
+                            <Setter TargetName="TypeIcon" Property="Data" Value="{StaticResource IconInfo}" />
+                            <Setter TargetName="TypeIcon" Property="Fill" Value="{DynamicResource AccentBrush}" />
+                        </Trigger>
                         <Trigger Property="Type" Value="Success">
+                            <Setter TargetName="TypeIcon" Property="Data" Value="{StaticResource IconApply}" />
+                            <Setter TargetName="TypeIcon" Property="Fill" Value="{DynamicResource NvidiaGreenBrush}" />
+                        </Trigger>
+                        <Trigger Property="Type" Value="成功">
                             <Setter TargetName="TypeIcon" Property="Data" Value="{StaticResource IconApply}" />
                             <Setter TargetName="TypeIcon" Property="Fill" Value="{DynamicResource NvidiaGreenBrush}" />
                         </Trigger>
@@ -116,7 +124,15 @@
                             <Setter TargetName="TypeIcon" Property="Data" Value="{StaticResource IconClose}" />
                             <Setter TargetName="TypeIcon" Property="Fill" Value="{DynamicResource ErrorBrush}" />
                         </Trigger>
+                        <Trigger Property="Type" Value="错误">
+                            <Setter TargetName="TypeIcon" Property="Data" Value="{StaticResource IconClose}" />
+                            <Setter TargetName="TypeIcon" Property="Fill" Value="{DynamicResource ErrorBrush}" />
+                        </Trigger>
                         <Trigger Property="Type" Value="Warning">
+                            <Setter TargetName="TypeIcon" Property="Data" Value="{StaticResource IconInfo}" />
+                            <Setter TargetName="TypeIcon" Property="Fill" Value="{DynamicResource WarningBrush}" />
+                        </Trigger>
+                        <Trigger Property="Type" Value="警告">
                             <Setter TargetName="TypeIcon" Property="Data" Value="{StaticResource IconInfo}" />
                             <Setter TargetName="TypeIcon" Property="Fill" Value="{DynamicResource WarningBrush}" />
                         </Trigger>
